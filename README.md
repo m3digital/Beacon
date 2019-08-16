@@ -4,5 +4,5 @@ This website/app is designed as a Meetup-style app where users are required to t
 
 So far, we are thinking about using Google Maps / Google Calendar API for the meetup page, so that users can easily see, share, and add events to their calendar. 
 
-# Deployed App https://intense-anchorage-52054.herokuapp.com/
+# Deployed App https://blooming-springs-72058.herokuapp.com/
 # Repository https://github.com/m3digital/Beacon
