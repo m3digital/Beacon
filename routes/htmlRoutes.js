@@ -20,7 +20,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/events");
     }
-    res.render("landing", {});
+    res.render("index", {});
   });
 
   // If the user already has an account, persistent login from passport.js sends them to the events page
