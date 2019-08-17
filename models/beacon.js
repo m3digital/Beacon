@@ -9,5 +9,12 @@ module.exports = function(sequelize, DataTypes) {
     startTime: DataTypes.TIME,
     date: DataTypes.DATE
   });
+  Beaon.associate = function(models){
+    Beacon.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Beacon;
 };
