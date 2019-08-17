@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Beacon = sequelize.define("Beacon", {
     title: DataTypes.STRING,
     category: DataTypes.STRING,
