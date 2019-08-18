@@ -18,7 +18,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/", function(req, res) {
     if (req.user) {
-      res.redirect("/events");
+      res.redirect("/beacon/1");
     }
     res.render("index", {});
   });
@@ -27,7 +27,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/login", function(req, res) {
     if (req.user) {
-      res.redirect("/events");
+      res.redirect("/beacon/1");
     }
     res.render("login", {});
   });
@@ -36,7 +36,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/signup", function(req, res) {
     if (req.user) {
-      res.redirect("/events");
+      res.redirect("/beacon/1");
     }
     res.render("signup", {});
   });
