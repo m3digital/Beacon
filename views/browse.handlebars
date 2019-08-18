@@ -1,0 +1,9 @@
+{{#each foundBeacons}}
+<a href="/beacon/{{dataValues.id}}">
+  <p>Beacon Title {{dataValues.title}}</p>
+  <p>Beacon Category {{dataValues.category}}</p>
+  <p>Beacon Start Time {{dataValues.startTime}}</p>
+  {{!-- <p>Beacon End Time {{dataValues.endTime}}</p> --}}
+  <p>Beacon Date {{dataValues.date}}</p>
+</a>
+{{/each}}
