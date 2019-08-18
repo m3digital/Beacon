@@ -18,7 +18,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/", function(req, res) {
     if (req.user) {
-      res.redirect("/beacon/1");
+      return res.redirect("/beacon/1");
     }
     res.render("index", {});
   });
@@ -27,7 +27,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/login", function(req, res) {
     if (req.user) {
-      res.redirect("/beacon/1");
+      return res.redirect("/beacon/1");
     }
     res.render("login", {});
   });
@@ -36,7 +36,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/signup", function(req, res) {
     if (req.user) {
-      res.redirect("/beacon/1");
+      return res.redirect("/beacon/1");
     }
     res.render("signup", {});
   });
@@ -45,6 +45,7 @@ module.exports = function(app) {
   // if they aren't logged in.
 
   app.get("/beacon/:id", isAuthenticated, function(req, res) {
+    console.log(req.user);
     db.Beacon.findAll({}).then(function() {
       res.render("beacon-details", {
         // examples: dbExamples
