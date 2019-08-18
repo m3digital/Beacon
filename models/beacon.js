@@ -10,6 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     date: DataTypes.DATE
   });
   Beacon.associate = function(models) {
+    Beacon.hasMany(models.Comment, { onDelete: "cascade" });
+
     Beacon.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
