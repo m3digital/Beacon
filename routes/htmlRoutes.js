@@ -56,10 +56,20 @@ module.exports = function(app) {
   });
 
   app.get("/beacon/:id", isAuthenticated, function(req, res) {
-    db.Beacon.findAll({}).then(function() {
-      res.render("beacon-details", {
-        // examples: dbExamples
-      });
+    db.Beacon.findOne({
+      where: { id: req.params.id },
+      include: [db.User]
+    }).then(function(beacon) {
+      var foundBeacon = {
+        op: beacon.dataValues.User.dataValues.firstName,
+        title: beacon.dataValues.title,
+        category: beacon.dataValues.category,
+        description: beacon.dataValues.description,
+        address: beacon.dataValues.address,
+        startTime: beacon.dataValues.startTime,
+        date: beacon.dataValues.date
+      };
+      res.render("beacon-details", foundBeacon);
     });
   });
 
