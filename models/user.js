@@ -20,6 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
+    displayName: DataTypes.STRING,
     meyersBriggs: DataTypes.STRING,
     description: DataTypes.STRING,
     imgURL: DataTypes.STRING

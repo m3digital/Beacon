@@ -12,7 +12,7 @@
   </head>
   <body>
     {{#if currentUser}}
-    <a href="/profile">{{currentUser.firstName}}</a>
+    <a href="/profile">{{currentUser.displayName}}</a>
     <a href="/logout">Logout</a>
     {{/if}}
     {{{body}}}
