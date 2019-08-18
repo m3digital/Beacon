@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     latitude: DataTypes.FLOAT,
     longitude: DataTypes.FLOAT,
     startTime: DataTypes.TIME,
+    endTime: DataTypes.TIME,
     date: DataTypes.DATE
   });
   Beacon.associate = function(models) {
