@@ -24,7 +24,6 @@ $(document).ready(function() {
     if (userData.password !== userData.passwordConfirm) {
       return; // Set up appropriate error later
     }
-    console.log(userData.displayName);
     signUpUser(
       userData.email,
       userData.password,
