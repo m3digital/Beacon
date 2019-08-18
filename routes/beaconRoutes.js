@@ -20,7 +20,6 @@ module.exports = function(app) {
     var bacon = req.body;
     bacon.UserId = req.user.id;
     db.Beacon.create(bacon).then(function(dbBeacon) {
-      console.log("Hi Max");
       res.json(dbBeacon);
     });
   });
