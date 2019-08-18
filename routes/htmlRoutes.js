@@ -41,6 +41,13 @@ module.exports = function(app) {
     res.render("signup", {});
   });
 
+  app.get("/profile", function(req, res) {
+    if (!req.user) {
+      return res.redirect("/login");
+    }
+    res.render("user-profile", {});
+  });
+
   // We'll use the isAuthenticated middleware in all other get requests to redirect users to the landing page
   // if they aren't logged in.
 
