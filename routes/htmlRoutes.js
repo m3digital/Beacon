@@ -49,12 +49,10 @@ module.exports = function(app) {
   });
 
   app.get("/beacon/:id", isAuthenticated, function(req, res) {
-    console.log(req.user);
     db.Beacon.findAll({}).then(function() {
       res.render("beacon-details", {
         // examples: dbExamples
       });
-      console.log("successful!");
     });
   });
 
@@ -69,8 +67,8 @@ module.exports = function(app) {
   //     });
   //   });
 
-  //   // Render 404 page for any unmatched routes
-  //   app.get("*", function(req, res) {
-  //     res.render("404");
-  //   });
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
+  });
 };
