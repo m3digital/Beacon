@@ -29,7 +29,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
-        window.location.replace("/");
+        window.location.replace("/beacon/1");
         console.log("window.location.replace");
         // If there's an error, log the error
       })
