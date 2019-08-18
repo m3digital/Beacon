@@ -17,7 +17,10 @@ module.exports = function(app) {
     });
   });
   app.post("/api/beacons", function(req, res) {
-    db.Beacon.create(req.body).then(function(dbBeacon) {
+    var bacon = req.body;
+    bacon.UserId = req.user.id;
+    db.Beacon.create(bacon).then(function(dbBeacon) {
+      console.log("Hi Max");
       res.json(dbBeacon);
     });
   });
