@@ -26,6 +26,7 @@ module.exports = function(app) {
         res.redirect(307, "/api/login");
       })
       .catch(function(err) {
+        console.log("it's this one");
         res.status(401).json(err);
       });
   });
