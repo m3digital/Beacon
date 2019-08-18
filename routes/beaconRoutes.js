@@ -2,15 +2,13 @@ var db = require("../models");
 
 module.exports = function(app) {
   app.get("/api/beacons", function(req, res) {
-    db.Beacon.findAll({ include: [db.User, db.Comment] }).then(function(
-      dbBeacons
-    ) {
+    db.Beacon.findAll({ include: [db.User] }).then(function(dbBeacons) {
       res.json(dbBeacons);
     });
   });
   app.get("/api/beacons/:id", function(req, res) {
     db.Beacon.find({
-      include: [db.User, db.Comment],
+      include: [db.User],
       where: {
         id: req.params.id
       }
