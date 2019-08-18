@@ -1,13 +1,13 @@
 <p>Hi, {{currentUser.firstName}}!</p>
 <h1>Beacon Details</h1>
 
-<p>Beacon User Name {{op}}</p>
-<p>Beacon Title {{title}}</p>
-<p>Beacon Category {{category}}</p>
-<p>Beacon Description {{description}}</p>
-<p>Beacon Address {{address}}</p>
-<p>Beacon Start Time {{startTime}}</p>
+<p>Beacon User Name {{dataValues.User.dataValues.firstName}}</p>
+<p>Beacon Title {{dataValues.title}}</p>
+<p>Beacon Category {{dataValues.category}}</p>
+<p>Beacon Description {{dataValues.description}}</p>
+<p>Beacon Address {{dataValues.address}}</p>
+<p>Beacon Start Time {{dataValues.startTime}}</p>
 {{!-- <p>Beacon End Time {{endTime}}</p> --}}
-<p>Beacon Date {{date}}</p>
+<p>Beacon Date {{dataValues.date}}</p>
 {{!-- <p>Comment User Name {{Comment.User.displayName}}</p>
 <p>Comment Body {{Comment.body}}</p> --}}

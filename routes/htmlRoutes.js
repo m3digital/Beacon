@@ -51,6 +51,13 @@ module.exports = function(app) {
   // We'll use the isAuthenticated middleware in all other get requests to redirect users to the landing page
   // if they aren't logged in.
 
+  app.get("/browse", isAuthenticated, function(req, res) {
+    db.Beacon.findAll({}).then(function(data) {
+      console.log(data);
+    });
+    res.render("browse");
+  });
+
   app.get("/beacon/new", isAuthenticated, function(req, res) {
     res.render("beacon-form");
   });
@@ -60,16 +67,7 @@ module.exports = function(app) {
       where: { id: req.params.id },
       include: [db.User]
     }).then(function(beacon) {
-      var foundBeacon = {
-        op: beacon.dataValues.User.dataValues.firstName,
-        title: beacon.dataValues.title,
-        category: beacon.dataValues.category,
-        description: beacon.dataValues.description,
-        address: beacon.dataValues.address,
-        startTime: beacon.dataValues.startTime,
-        date: beacon.dataValues.date
-      };
-      res.render("beacon-details", foundBeacon);
+      res.render("beacon-details", beacon);
     });
   });
 
