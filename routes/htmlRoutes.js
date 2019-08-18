@@ -44,6 +44,10 @@ module.exports = function(app) {
   // We'll use the isAuthenticated middleware in all other get requests to redirect users to the landing page
   // if they aren't logged in.
 
+  app.get("/beacon/new", isAuthenticated, function(req, res) {
+    res.render("beacon-form");
+  });
+
   app.get("/beacon/:id", isAuthenticated, function(req, res) {
     console.log(req.user);
     db.Beacon.findAll({}).then(function() {
