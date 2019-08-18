@@ -47,7 +47,7 @@ $(document).ready(function() {
       lastName: lastName
     })
       .then(function(data) {
-        window.location.replace("/login");
+        window.location.replace("/browse");
         console.log(data);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
