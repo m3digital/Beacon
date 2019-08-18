@@ -44,27 +44,28 @@ module.exports = function(app) {
   // We'll use the isAuthenticated middleware in all other get requests to redirect users to the landing page
   // if they aren't logged in.
 
-  app.get("/events", isAuthenticated, function(req, res) {
-    db.Beacon.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        examples: dbExamples
+  app.get("/beacon/:id", isAuthenticated, function(req, res) {
+    db.Beacon.findAll({}).then(function() {
+      res.render("beacon-details", {
+        // examples: dbExamples
       });
+      console.log("successful!");
     });
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", isAuthenticated, function(req, res) {
-    db.Beacon.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+  //   app.get("/example/:id", isAuthenticated, function(req, res) {
+  //     db.Beacon.findOne({ where: { id: req.params.id } }).then(function(
+  //       dbExample
+  //     ) {
+  //       res.render("example", {
+  //         example: dbExample
+  //       });
+  //     });
+  //   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  //   // Render 404 page for any unmatched routes
+  //   app.get("*", function(req, res) {
+  //     res.render("404");
+  //   });
 };
