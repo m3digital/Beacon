@@ -17,7 +17,6 @@ $(document).ready(function() {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim()
     };
-    console.log("after creating userData object");
     if (!userData.email || !userData.password) {
       return; // Set up appropriate error later
     }
@@ -25,14 +24,14 @@ $(document).ready(function() {
     if (userData.password !== userData.passwordConfirm) {
       return; // Set up appropriate error later
     }
-    console.log("Before signUpUser function");
+    console.log(userData.displayName);
     signUpUser(
       userData.email,
       userData.password,
       userData.firstName,
-      userData.lastName
+      userData.lastName,
+      userData.displayName
     );
-    console.log("After signUpUser function");
     emailInput.val("");
     passwordInput.val("");
     passwordConfirmInput.val("");
@@ -42,12 +41,13 @@ $(document).ready(function() {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password, firstName, lastName) {
+  function signUpUser(email, password, firstName, lastName, displayName) {
     $.post("/api/signup", {
       email: email,
       password: password,
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
+      displayName: displayName
     })
       .then(function(data) {
         window.location.replace("/login");
