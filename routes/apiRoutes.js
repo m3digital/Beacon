@@ -20,12 +20,20 @@ module.exports = function(app) {
       var displayName = str1 + " " + str2[0] + ".";
       return displayName;
     }
+    function toTitleCase(str) {
+      return str.replace(/(?:^|\s)\w/g, function(match) {
+        return match.toUpperCase();
+      });
+    }
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      displayName: getDisplayName(req.body.firstName, req.body.lastName)
+      firstName: toTitleCase(req.body.firstName),
+      lastName: toTitleCase(req.body.lastName),
+      displayName: getDisplayName(
+        toTitleCase(req.body.firstName),
+        toTitleCase(req.body.lastName)
+      )
     })
       .then(function() {
         res.redirect(307, "/api/login");
