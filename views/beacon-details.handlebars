@@ -1,7 +1,10 @@
 <p>Hi, {{currentUser.displayName}}!</p>
 <h1>Beacon Details</h1>
 
-<p>Beacon User Name {{dataValues.User.dataValues.displayName}}</p>
+<p>
+  <a href="/profile/{{dataValues.User.dataValues.id}}">Beacon User Name
+    {{dataValues.User.dataValues.displayName}}</a>
+</p>
 <p>Beacon Title {{dataValues.title}}</p>
 <p>Beacon Category {{dataValues.category}}</p>
 <p>Beacon Description {{dataValues.description}}</p>
