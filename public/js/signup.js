@@ -17,7 +17,6 @@ $(document).ready(function() {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim()
     };
-    console.log("after creating userData object");
     if (!userData.email || !userData.password) {
       return; // Set up appropriate error later
     }
@@ -25,14 +24,12 @@ $(document).ready(function() {
     if (userData.password !== userData.passwordConfirm) {
       return; // Set up appropriate error later
     }
-    console.log("Before signUpUser function");
     signUpUser(
       userData.email,
       userData.password,
       userData.firstName,
       userData.lastName
     );
-    console.log("After signUpUser function");
     emailInput.val("");
     passwordInput.val("");
     passwordConfirmInput.val("");
@@ -50,7 +47,7 @@ $(document).ready(function() {
       lastName: lastName
     })
       .then(function(data) {
-        window.location.replace("/login");
+        window.location.replace("/browse");
         console.log(data);
         // If there's an error, handle it by throwing up a bootstrap alert
       })

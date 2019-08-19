@@ -18,7 +18,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/", function(req, res) {
     if (req.user) {
-      return res.redirect("/beacon/1");
+      return res.redirect("/browse");
     }
     res.render("index", {});
   });
@@ -27,7 +27,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/login", function(req, res) {
     if (req.user) {
-      return res.redirect("/beacon/1");
+      return res.redirect("/browse");
     }
     res.render("login", {});
   });
@@ -36,7 +36,7 @@ module.exports = function(app) {
   // Otherwise they go to the landing page
   app.get("/signup", function(req, res) {
     if (req.user) {
-      return res.redirect("/beacon/1");
+      return res.redirect("/browse");
     }
     res.render("signup", {});
   });
@@ -45,21 +45,28 @@ module.exports = function(app) {
     if (!req.user) {
       return res.redirect("/login");
     }
-    res.render("user-profile", {});
+    res.render("user-profile");
   });
 
   // We'll use the isAuthenticated middleware in all other get requests to redirect users to the landing page
   // if they aren't logged in.
+
+  app.get("/browse", isAuthenticated, function(req, res) {
+    db.Beacon.findAll({}).then(function(foundBeacons) {
+      res.render("browse", { foundBeacons: foundBeacons });
+    });
+  });
 
   app.get("/beacon/new", isAuthenticated, function(req, res) {
     res.render("beacon-form");
   });
 
   app.get("/beacon/:id", isAuthenticated, function(req, res) {
-    db.Beacon.findAll({}).then(function() {
-      res.render("beacon-details", {
-        // examples: dbExamples
-      });
+    db.Beacon.findOne({
+      where: { id: req.params.id },
+      include: [db.User]
+    }).then(function(beacon) {
+      res.render("beacon-details", beacon);
     });
   });
 
