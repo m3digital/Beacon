@@ -25,10 +25,9 @@ $(document).ready(function() {
       });
   }
 });
-//   .then(function() {
-//         // window.location.replace("/browse");
-//         // If there's an error, log the error
-//       })
 function getComments() {
+  $("#comment-container").empty();
+  //   $.get("/api/comments", {
+  //   })
   console.log("hi");
 }
