@@ -1,12 +1,13 @@
-{{!-- <script>
+<script>
 function initMap() {
   var urlArray = window.location.href.split("/")
-  var urlID = urlArray[-1]
+  var urlID = urlArray[urlArray.length - 1]
   $.get("/api/beacons/" + urlID,).then(
-    function(beacon) {
-      console.log(beacon);
-      var beacon = { lat: beacon.datavalues.latitude, lng: beacon.dataValues.longitude };
+    function(foundBeacon) {
+      console.log(foundBeacon);
+      var beacon = { lat: foundBeacon.latitude, lng: foundBeacon.longitude };
       // The map, centered at BEACON
+      console.log(beacon)
       var map = new google.maps.Map(document.getElementById("beacon-map"), {
         zoom: 4,
         center: beacon
@@ -18,26 +19,24 @@ function initMap() {
 }
 
 </script>
-
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=" + process.env.keyskeys + "&callback=initMap">
-</script> --}}
-
-
+  src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=initMap">
+</script>
 <p>Hi, {{currentUser.displayName}}!</p>
 <h1>Beacon Details</h1>
 
 <p>
-  <a href="/profile/{{dataValues.User.dataValues.id}}">Beacon User Name
-    {{dataValues.User.dataValues.displayName}}</a>
+  <a href="/profile/{{beacon.dataValues.User.dataValues.id}}">Beacon User
+    Name
+    {{beacon.dataValues.User.dataValues.displayName}}</a>
 </p>
-<p>Beacon Title {{dataValues.title}}</p>
-<p>Beacon Category {{dataValues.category}}</p>
-<p>Beacon Description {{dataValues.description}}</p>
-<p>Beacon Address {{dataValues.address}}</p>
-<p>Beacon Start Time {{dataValues.startTime}}</p>
+<p>Beacon Title {{beacon.dataValues.title}}</p>
+<p>Beacon Category {{beacon.dataValues.category}}</p>
+<p>Beacon Description {{beacon.dataValues.description}}</p>
+<p>Beacon Address {{beacon.dataValues.address}}</p>
+<p>Beacon Start Time {{beacon.dataValues.startTime}}</p>
 {{!-- <p>Beacon End Time {{endTime}}</p> --}}
-<p>Beacon Date {{dataValues.date}}</p>
+<p>Beacon Date {{beacon.dataValues.date}}</p>
 <div id="beacon-map" style="width: 400px; height: 200px;"></div>
 
 <form id="form-comment">
@@ -48,7 +47,3 @@ function initMap() {
 <div id="comment-container"></div>
 {{!-- <p>Comment User Name {{Comment.User.displayName}}</p>
 <p>Comment Body {{Comment.body}}</p> --}}
-
-
-
-
