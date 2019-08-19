@@ -2,13 +2,11 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "node": true,
-        "mocha": true
+        "node": true
     },
     "extends": "prettier",
     "plugins": [
-        "prettier",
-        "mocha"
+        "prettier"
       ],
     "rules": {
         "no-duplicate-case":"error",
