@@ -12,7 +12,11 @@ $(document).ready(function() {
   });
 
   function logComment(body) {
+    var link = window.location.href.split("/");
+    BeaconId = link[link.length - 1];
+    console.log(BeaconId);
     $.post("/api/comments", {
+      BeaconId: BeaconId,
       body: body
     })
       .then(getComments)
@@ -21,7 +25,10 @@ $(document).ready(function() {
       });
   }
 });
-
-// function getComments() {
-
-// };
+//   .then(function() {
+//         // window.location.replace("/browse");
+//         // If there's an error, log the error
+//       })
+function getComments() {
+  console.log("hi");
+}

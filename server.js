@@ -34,6 +34,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+require("./routes/commentRoutes")(app);
 require("./routes/beaconRoutes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
