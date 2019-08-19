@@ -2,8 +2,7 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "node": true,
-        "mocha": true
+        "node": true
     },
     "extends": "prettier",
     "plugins": [
