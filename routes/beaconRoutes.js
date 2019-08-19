@@ -1,4 +1,7 @@
 var db = require("../models");
+var googleMapsClient = require("@google/maps").createClient({
+  key: "AIzaSyDQLU0ncT8kztntuIrRzAMgHLkelFS0POo"
+});
 
 module.exports = function(app) {
   app.get("/api/beacons", function(req, res) {
@@ -17,10 +20,21 @@ module.exports = function(app) {
     });
   });
   app.post("/api/beacons", function(req, res) {
-    var bacon = req.body;
-    bacon.UserId = req.user.id;
-    db.Beacon.create(bacon).then(function(dbBeacon) {
-      res.json(dbBeacon);
-    });
+    var newBeacon = req.body;
+    newBeacon.UserId = req.user.id;
+    googleMapsClient.geocode(
+      {
+        address: newBeacon.address
+      },
+      function(err, response) {
+        if (!err) {
+          newBeacon.latitude = response.json.results[0].geometry.location.lat;
+          newBeacon.longitude = response.json.results[0].geometry.location.lng;
+          db.Beacon.create(newBeacon).then(function(dbBeacon) {
+            res.json(dbBeacon);
+          });
+        }
+      }
+    );
   });
 };
