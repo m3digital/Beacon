@@ -41,11 +41,13 @@ module.exports = function(app) {
     res.render("signup", {});
   });
 
-  app.get("/profile", function(req, res) {
+  app.get("/profile/:id", function(req, res) {
     if (!req.user) {
       return res.redirect("/login");
     }
-    res.render("user-profile");
+    db.User.findOne({ where: { id: req.params.id } }).then(function(foundUser) {
+      res.render("user-profile", foundUser);
+    });
   });
 
   // We'll use the isAuthenticated middleware in all other get requests to redirect users to the landing page
