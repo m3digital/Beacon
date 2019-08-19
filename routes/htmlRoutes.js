@@ -68,7 +68,10 @@ module.exports = function(app) {
       where: { id: req.params.id },
       include: [db.User]
     }).then(function(beacon) {
-      res.render("beacon-details", beacon);
+      res.render("beacon-details", {
+        beacon: beacon,
+        apiKey: process.env.keyskeys
+      });
     });
   });
 

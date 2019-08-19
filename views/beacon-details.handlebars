@@ -1,4 +1,28 @@
+<script>
+function initMap() {
+  var urlArray = window.location.href.split("/")
+  var urlID = urlArray[urlArray.length - 1]
+  $.get("/api/beacons/" + urlID,).then(
+    function(foundBeacon) {
+      console.log(foundBeacon);
+      var beacon = { lat: foundBeacon.latitude, lng: foundBeacon.longitude };
+      // The map, centered at BEACON
+      console.log(beacon)
+      var map = new google.maps.Map(document.getElementById("beacon-map"), {
+        zoom: 4,
+        center: beacon
+      });
+      // The marker, positioned at beacon
+      var marker = new google.maps.Marker({ position: beacon, map: map });
+    }
+  );
+}
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=initMap">
+</script>
 {{> header}}
+
 <div class="container">
   <h1>{{dataValues.title}}</h1>
   <p>
