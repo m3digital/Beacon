@@ -27,7 +27,10 @@ function initMap() {
 <p>Hi, {{currentUser.displayName}}!</p>
 <h1>Beacon Details</h1>
 
-<p>Beacon User Name {{dataValues.User.dataValues.displayName}}</p>
+<p>
+  <a href="/profile/{{dataValues.User.dataValues.id}}">Beacon User Name
+    {{dataValues.User.dataValues.displayName}}</a>
+</p>
 <p>Beacon Title {{dataValues.title}}</p>
 <p>Beacon Category {{dataValues.category}}</p>
 <p>Beacon Description {{dataValues.description}}</p>
@@ -36,6 +39,12 @@ function initMap() {
 {{!-- <p>Beacon End Time {{endTime}}</p> --}}
 <p>Beacon Date {{dataValues.date}}</p>
 <div id="beacon-map" style="width: 400px; height: 200px;"></div>
+
+<form id="form-comment">
+  <textarea name="body" id="body" cols="30" rows="10"></textarea>
+  <input id="btn-comment" type="submit" value="Leave Comment">
+</form>
+
 {{!-- <p>Comment User Name {{Comment.User.displayName}}</p>
 <p>Comment Body {{Comment.body}}</p> --}}
 
