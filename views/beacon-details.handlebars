@@ -1,3 +1,29 @@
+{{!-- <script>
+function initMap() {
+  var urlArray = window.location.href.split("/")
+  var urlID = urlArray[-1]
+  $.get("/api/beacons/" + urlID,).then(
+    function(beacon) {
+      console.log(beacon);
+      var beacon = { lat: beacon.datavalues.latitude, lng: beacon.dataValues.longitude };
+      // The map, centered at BEACON
+      var map = new google.maps.Map(document.getElementById("beacon-map"), {
+        zoom: 4,
+        center: beacon
+      });
+      // The marker, positioned at beacon
+      var marker = new google.maps.Marker({ position: beacon, map: map });
+    }
+  );
+}
+
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=" + process.env.keyskeys + "&callback=initMap">
+</script> --}}
+
+
 <p>Hi, {{currentUser.displayName}}!</p>
 <h1>Beacon Details</h1>
 
@@ -12,3 +38,4 @@
 <div id="beacon-map" style="width: 400px; height: 200px;"></div>
 {{!-- <p>Comment User Name {{Comment.User.displayName}}</p>
 <p>Comment Body {{Comment.body}}</p> --}}
+

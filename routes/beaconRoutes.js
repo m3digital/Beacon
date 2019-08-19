@@ -1,6 +1,6 @@
 var db = require("../models");
 var googleMapsClient = require("@google/maps").createClient({
-  key: "AIzaSyDQLU0ncT8kztntuIrRzAMgHLkelFS0POo"
+  key: process.env.keyskeys
 });
 
 module.exports = function(app) {
@@ -10,7 +10,7 @@ module.exports = function(app) {
     });
   });
   app.get("/api/beacons/:id", function(req, res) {
-    db.Beacon.find({
+    db.Beacon.findOne({
       include: [db.User],
       where: {
         id: req.params.id
