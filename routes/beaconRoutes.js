@@ -1,4 +1,5 @@
 var db = require("../models");
+var checkOwnership = require("../config/middleware/checkOwnership");
 var googleMapsClient = require("@google/maps").createClient({
   key: process.env.keyskeys
 });
@@ -19,7 +20,7 @@ module.exports = function(app) {
       res.json(dbBeacon);
     });
   });
-  app.delete("/api/beacons/:id", function(req, res) {
+  app.delete("/api/beacons/:id", checkOwnership.beacon, function(req, res) {
     db.Beacon.destroy({
       where: {
         id: req.params.id

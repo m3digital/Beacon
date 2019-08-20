@@ -58,7 +58,7 @@ function getComments(id) {
         commentEdit +
         "</div>";
       var newComment =
-        "<div>" +
+        "<div class='comment'>" +
         commentUser +
         commentTime +
         commentBody +
