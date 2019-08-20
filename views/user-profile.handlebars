@@ -1,6 +1,22 @@
 {{> header}}
 
 <h1>This is the User Profile Page</h1>
+
+{{!-- User information --}}
 <p>{{currentUser.firstName}}</p>
+
+{{!-- Beacons by the user --}}
+<ul>
+  {{#each foundUser.Beacons}}
+  <li>{{dataValues.title}}</li>
+  {{/each}}
+</ul>
+
+{{!-- Comments left by the user --}}
+<ul>
+  {{#each foundUser.Comments}}
+  <li>{{dataValues.body}}</li>
+  {{/each}}
+</ul>
 
 {{> footer}}
