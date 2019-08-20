@@ -61,7 +61,9 @@ module.exports = function(app) {
 
   app.get("/browse", isAuthenticated, function(req, res) {
     db.Beacon.findAll({}).then(function(foundBeacons) {
-      res.render("browse", { foundBeacons: foundBeacons });
+      res.render("browse", {
+        foundBeacons: foundBeacons,
+        apiKey: process.env.keyskeys });
     });
   });
 
