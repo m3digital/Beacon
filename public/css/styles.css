@@ -1,3 +1,10 @@
 .list-group-item {
   line-height: 2.5;
 }
+body {
+  background-color: #F5f5f5
+}
+/* #pageNotFound {
+  background-image: url("https://images.unsplash.com/photo-1547643835-04cd59c17da4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+
+} */
