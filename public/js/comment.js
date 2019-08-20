@@ -32,17 +32,18 @@ function getComments(id) {
   $.get("/api/comments/" + id, {}).then(function(commentList) {
     $("#comment-container").empty();
     for (var i = 0; i < commentList.length; i++) {
-      var newComment = "<div>" + commentList[i].body + "</div>";
-      var byUser = "<div>" + commentList[i].User.displayName + "</div>";
-      var timeCreated =
-        "<div>" +
+      var commentBody = "<div class=''>" + commentList[i].body + "</div>";
+      var commentUser =
+        "<div class=''>" + commentList[i].User.displayName + "</div>";
+      var commentTime =
+        "<div class=''>" +
         moment(commentList[i].createdAt)
           .startOf("hour")
           .fromNow() +
         "</div>";
+      var newComment =
+        "<div>" + commentUser + commentTime + commentBody + "</div>";
       $("#comment-container").append(newComment);
-      $("#comment-container").append(byUser);
-      $("#comment-container").append(timeCreated);
     }
   });
 }
