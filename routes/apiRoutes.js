@@ -28,11 +28,11 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      firstName: toTitleCase(req.body.firstName),
-      lastName: toTitleCase(req.body.lastName),
+      firstName: toTitleCase(req.body.firstName.toLowerCase()),
+      lastName: toTitleCase(req.body.lastName.toLowerCase()),
       displayName: getDisplayName(
-        toTitleCase(req.body.firstName),
-        toTitleCase(req.body.lastName)
+        toTitleCase(req.body.firstName.toLowerCase()),
+        toTitleCase(req.body.lastName.toLowerCase())
       )
     })
       .then(function() {

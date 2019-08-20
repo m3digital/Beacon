@@ -10,7 +10,7 @@ $(document).ready(function() {
     var commentData = {
       body: bodyInput.val().trim()
     };
-
+    bodyInput.val("");
     logComment(commentData.body);
   });
 
@@ -30,19 +30,38 @@ $(document).ready(function() {
 });
 function getComments(id) {
   $.get("/api/comments/" + id, {}).then(function(commentList) {
-    $("#comment-container").empty();
+    $("#comments").empty();
     for (var i = 0; i < commentList.length; i++) {
-      var newComment = "<div>" + commentList[i].body + "</div>";
-      var byUser = "<div>" + commentList[i].User.displayName + "</div>";
-      var timeCreated =
-        "<div>" +
+      var commentBody = "<div class=''>" + commentList[i].body + "</div>";
+      var commentUser =
+        "<div class=''>" + commentList[i].User.displayName + "</div>";
+      var commentTime =
+        "<div class=''>" +
         moment(commentList[i].createdAt)
           .startOf("hour")
           .fromNow() +
         "</div>";
-      $("#comment-container").append(newComment);
-      $("#comment-container").append(byUser);
-      $("#comment-container").append(timeCreated);
+      var commentDelete =
+        "<div class='btn-delete btn btn-sm btn-danger' data-id=" +
+        commentList[i].id +
+        ">Delete</div>";
+      var commentEdit =
+        "<div class='btn-edit btn btn-sm btn-warning' data-id=" +
+        commentList[i].id +
+        ">Edit</div>";
+      var commentButtons =
+        "<div class='comment-buttons'>" +
+        commentDelete +
+        commentEdit +
+        "</div>";
+      var newComment =
+        "<div>" +
+        commentUser +
+        commentTime +
+        commentBody +
+        commentButtons +
+        "</div>";
+      $("#comments").append(newComment);
     }
   });
 }

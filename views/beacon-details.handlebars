@@ -25,30 +25,38 @@ function initMap() {
 
 <div class="container">
 
-  <div class="details d-flex justify-content-between">
-    <div class="details-main">
-      <h1>{{beacon.dataValues.title}}</h1>
-      <p>
-        <a href="/profile/{{beacon.dataValues.User.dataValues.id}}">
-          Posted by {{beacon.dataValues.User.dataValues.displayName}}</a>
-      </p>
-      <p>{{beacon.dataValues.category}}</p>
+  {{!-- Beacon Container --}}
+  <div class="beacon-container">
+    <div class="beacon-buttons">
+      <div class="btn-delete btn btn-sm btn-danger" data-id="{{beacon.dataValues.id}}">Delete</div>
+      <div class="btn-edit btn btn-sm btn-warning" data-id="{{beacon.dataValues.id}}">Edit</div>
     </div>
+    <div class="beacon-details d-flex justify-content-between">
+      <div class="beacon-main">
+        <h1>{{beacon.dataValues.title}}</h1>
+        <p>
+          <a href="/profile/{{beacon.dataValues.User.dataValues.id}}">
+            Posted by {{beacon.dataValues.User.dataValues.displayName}}</a>
+        </p>
+        <p>{{beacon.dataValues.category}}</p>
+      </div>
 
-    <div class="details-aside">
-      <p>{{beacon.dataValues.address}}</p>
-      <p>{{beacon.dataValues.startTime}}</p>
-      {{!-- <p>Beacon End Time {{endTime}}</p> --}}
-      <p>Beacon Date {{beacon.dataValues.date}}</p>
+      <div class="beacon-aside">
+        <p>{{beacon.dataValues.address}}</p>
+        <p>Start: {{beacon.dataValues.startTime}}</p>
+        {{#if beacon.dataValues.endTime}}
+        <p>End: {{beacon.dataValues.endTime}}</p>
+        {{/if}}
+        <p>{{beacon.dataValues.date}}</p>
+      </div>
     </div>
-
+    <hr>
+    <p class="text-justify">{{beacon.dataValues.description}}</p>
+    <div id="beacon-map"></div>
   </div>
-  <hr>
-  <p class="text-justify">{{beacon.dataValues.description}}</p>
 
-  <div id="beacon-map" style="width: 100%; height: 300px; background: #c2c2c2;"></div>
   {{!-- Comment Form --}}
-  <div class="comment-group my-3">
+  <div class="comment-container my-3">
     <form id="form-comment">
       <div class="form-group">
         <label for="body">Leave a Comment</label>
@@ -60,7 +68,7 @@ function initMap() {
     </form>
 
     {{!-- Comments --}}
-    <div id="comment-container"></div>
+    <div id="comments"></div>
   </div>
 
 </div>
