@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  var link = window.location.href.split("/");
+  BeaconId = link[link.length - 1];
+  getComments(BeaconId);
   var commentForm = $("#form-comment");
   var bodyInput = $("#body");
 
@@ -12,22 +15,29 @@ $(document).ready(function() {
   });
 
   function logComment(body) {
-    var link = window.location.href.split("/");
-    BeaconId = link[link.length - 1];
     console.log(BeaconId);
     $.post("/api/comments", {
       BeaconId: BeaconId,
       body: body
     })
-      .then(getComments)
+      .then(function() {
+        getComments(BeaconId);
+      })
       .catch(function(err) {
         console.log(err);
       });
   }
 });
-function getComments() {
-  $("#comment-container").empty();
-  //   $.get("/api/comments", {
-  //   })
-  console.log("hi");
+function getComments(id) {
+  $.get("/api/comments/" + id, {}).then(function(commentList) {
+    $("#comment-container").empty();
+    for (var i = 0; i < commentList.length; i++) {
+      var newComment = "<div>" + commentList[i].body + "</div>";
+      var byUser = "<div>" + commentList[i].User.displayName + "</div>";
+      $("#comment-container").append(newComment);
+      $("#comment-container").append(byUser);
+      console.log(commentList[i]);
+      console.log(commentList[i].User.displayName);
+    }
+  });
 }

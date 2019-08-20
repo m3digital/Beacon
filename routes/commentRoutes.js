@@ -14,4 +14,15 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
+
+  app.get("/api/comments/:beaconId", isAuthenticated, function(req, res) {
+    db.Comment.findAll({
+      where: {
+        BeaconId: req.params.beaconId
+      },
+      include: [db.User]
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
 };
