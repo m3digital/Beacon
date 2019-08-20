@@ -63,7 +63,8 @@ module.exports = function(app) {
     db.Beacon.findAll({}).then(function(foundBeacons) {
       res.render("browse", {
         foundBeacons: foundBeacons,
-        apiKey: process.env.keyskeys });
+        apiKey: process.env.keyskeys
+      });
     });
   });
 
