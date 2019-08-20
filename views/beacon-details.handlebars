@@ -37,9 +37,11 @@ function initMap() {
 
     <div class="details-aside">
       <p>{{beacon.dataValues.address}}</p>
-      <p>{{beacon.dataValues.startTime}}</p>
-      {{!-- <p>Beacon End Time {{endTime}}</p> --}}
-      <p>Beacon Date {{beacon.dataValues.date}}</p>
+      <p>Start: {{beacon.dataValues.startTime}}</p>
+      {{#if beacon.dataValues.endTime}}
+      <p>End: {{beacon.dataValues.endTime}}</p>
+      {{/if}}
+      <p>{{beacon.dataValues.date}}</p>
     </div>
 
   </div>
