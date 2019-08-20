@@ -2,9 +2,23 @@
   line-height: 2.5;
 }
 body {
-  background-color: #F5f5f5
+  background-color: #f5f5f5;
 }
 /* #pageNotFound {
   background-image: url("https://images.unsplash.com/photo-1547643835-04cd59c17da4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
 
 } */
+
+.details {
+  margin-top: 3em;
+}
+
+.details-aside {
+  width: 200px;
+  padding-left: 1em;
+}
+
+.comment-group {
+  background: #d6d6d6;
+  padding: 0.7em 2em;
+}
