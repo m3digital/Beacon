@@ -32,11 +32,14 @@ function getComments(id) {
   $.get("/api/comments/" + id, {}).then(function(commentList) {
     $("#comments").empty();
     for (var i = 0; i < commentList.length; i++) {
-      var commentBody = "<div class=''>" + commentList[i].body + "</div>";
+      var commentBody =
+        "<div class='comment-body'>" + commentList[i].body + "</div>";
       var commentUser =
-        "<div class=''>" + commentList[i].User.displayName + "</div>";
+        "<div class='comment-user'>" +
+        commentList[i].User.displayName +
+        "</div>";
       var commentTime =
-        "<div class=''>" +
+        "<div class='comment-time'>" +
         moment(commentList[i].createdAt)
           .startOf("hour")
           .fromNow() +
