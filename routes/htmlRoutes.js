@@ -45,7 +45,13 @@ module.exports = function(app) {
     if (!req.user) {
       return res.redirect("/login");
     }
-    db.User.findOne({ where: { id: req.params.id } }).then(function(foundUser) {
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Beacon, db.Comment]
+    }).then(function(foundUser) {
+      console.log(foundUser);
       res.render("user-profile", foundUser);
     });
   });
