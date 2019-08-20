@@ -1,9 +1,21 @@
-<form id="form-login">
-  <label for="email">Email</label>
-  <input type="email" name="email" id="email" required>
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password" required>
-  <input type="submit" value="Login" id="btn-login">
-</form>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-sm-6">
+        <div style="text-align:center">
+        <h4>Login to Your Account</h4></div>
+        <br>
+          <form id="form-login">
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email" style="position:absolute;width:70%;right:0" required>
+              <br>
+              <label for="password">Password:</label>
+              <input type="password" name="password" id="password" style="position:absolute;width:70%;right:0" required>
+              <br>
+              <br>
+              <input type="submit" value="Login" id="btn-login" style="position:absolute;right:0">
+            </form>
+    </div>
+  </div>
+</div>
 
 <script src="/js/login.js"></script>
