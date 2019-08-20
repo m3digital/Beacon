@@ -1,3 +1,5 @@
+{{> header}}
+
 {{#each foundBeacons}}
 <a href="/beacon/{{dataValues.id}}">
   <p>Beacon Title {{dataValues.title}}</p>
@@ -7,3 +9,5 @@
   <p>Beacon Date {{dataValues.date}}</p>
 </a>
 {{/each}}
+
+{{> footer}}
