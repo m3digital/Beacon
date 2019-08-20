@@ -34,10 +34,15 @@ function getComments(id) {
     for (var i = 0; i < commentList.length; i++) {
       var newComment = "<div>" + commentList[i].body + "</div>";
       var byUser = "<div>" + commentList[i].User.displayName + "</div>";
+      var timeCreated =
+        "<div>" +
+        moment(commentList[i].createdAt)
+          .startOf("hour")
+          .fromNow() +
+        "</div>";
       $("#comment-container").append(newComment);
       $("#comment-container").append(byUser);
-      console.log(commentList[i]);
-      console.log(commentList[i].User.displayName);
+      $("#comment-container").append(timeCreated);
     }
   });
 }
