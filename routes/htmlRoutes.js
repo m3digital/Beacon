@@ -51,7 +51,7 @@ module.exports = function(app) {
       },
       include: [db.Beacon, db.Comment]
     }).then(function(foundUser) {
-      console.log(foundUser);
+      console.log(foundUser.Beacons);
       res.render("user-profile", foundUser);
     });
   });
