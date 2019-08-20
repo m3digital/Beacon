@@ -1,6 +1,4 @@
-{{> header}}
-<script>
-  var customLabel = {
+var customLabel = {
   restaurant: {
     label: 'R'
   },
@@ -20,7 +18,6 @@
     $.get('/api/beacons').then(function(beaconList) {
 
       for (beacon of beaconList) {
-        console.log(beacon)
         var id = beacon.id;
         var name = beacon.title;
         var address = beacon.address;
@@ -51,21 +48,19 @@
       };
     });
   }
-</script>
 
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=initMap">
-</script>
-<div id="beacon-map" style="width: 100%; height: 800px; background: #c2c2c2;"></div>
 
-{{#each foundBeacons}}
-<a href="/beacon/{{dataValues.id}}">
-  <p>Beacon Title {{dataValues.title}}</p>
-  <p>Beacon Category {{dataValues.category}}</p>
-  <p>Beacon Start Time {{dataValues.startTime}}</p>
-  {{!-- <p>Beacon End Time {{dataValues.endTime}}</p> --}}
-  <p>Beacon Date {{dataValues.date}}</p>
-</a>
-{{/each}}
 
-{{> footer}}
+
+  request.onreadystatechange = function() {
+    if (request.readyState == 4) {
+      request.onreadystatechange = doNothing;
+      callback(request, request.status);
+    }
+  };
+
+  request.open('GET', url, true);
+  request.send(null);
+
+
+function doNothing() {}
