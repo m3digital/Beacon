@@ -9,7 +9,7 @@ function initMap() {
       // The map, centered at BEACON
       console.log(beacon)
       var map = new google.maps.Map(document.getElementById("beacon-map"), {
-        zoom: 4,
+        zoom: 10,
         center: beacon
       });
       // The marker, positioned at beacon
@@ -24,21 +24,21 @@ function initMap() {
 {{> header}}
 
 <div class="container">
-  <h1>{{dataValues.title}}</h1>
+  <h1>{{beacon.dataValues.title}}</h1>
   <p>
-    <a href="/profile/{{dataValues.User.dataValues.id}}">
-      Posted by {{dataValues.User.dataValues.displayName}}</a>
+    <a href="/profile/{{beacon.dataValues.User.dataValues.id}}">
+      Posted by {{beacon.dataValues.User.dataValues.displayName}}</a>
   </p>
   <div class="details-container d-flex justify-content-around">
     <div class="details-main">
-      <p>{{dataValues.category}}</p>
-      <p>{{dataValues.description}}</p>
+      <p>{{beacon.dataValues.category}}</p>
+      <p>{{beacon.dataValues.description}}</p>
     </div>
     <div class="details-aside">
-      <p>{{dataValues.address}}</p>
-      <p>{{dataValues.startTime}}</p>
+      <p>{{beacon.dataValues.address}}</p>
+      <p>{{beacon.dataValues.startTime}}</p>
       {{!-- <p>Beacon End Time {{endTime}}</p> --}}
-      <p>Beacon Date {{dataValues.date}}</p>
+      <p>Beacon Date {{beacon.dataValues.date}}</p>
     </div>
   </div>
   <div id="beacon-map" style="width: 100%; height: 200px; background: #c2c2c2;"></div>
@@ -51,4 +51,7 @@ function initMap() {
   {{!-- Comments --}}
   <div id="comment-container"></div>
 </div>
+
 {{> footer}}
+
+<script src="/js/comment.js"></script>
