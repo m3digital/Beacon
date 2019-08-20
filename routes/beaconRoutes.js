@@ -19,6 +19,15 @@ module.exports = function(app) {
       res.json(dbBeacon);
     });
   });
+  app.delete("/api/beacons/:id", function(req, res) {
+    db.Beacon.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbBeacon) {
+      res.json(dbBeacon);
+    });
+  });
   app.post("/api/beacons", function(req, res) {
     var newBeacon = req.body;
     newBeacon.UserId = req.user.id;
