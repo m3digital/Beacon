@@ -51,7 +51,7 @@ module.exports = function(app) {
       },
       include: [db.Beacon, db.Comment]
     }).then(function(foundUser) {
-      console.log(foundUser.Beacons);
+      // console.log(foundUser.Beacons);
       res.render("user-profile", foundUser);
     });
   });
@@ -63,7 +63,8 @@ module.exports = function(app) {
     db.Beacon.findAll({}).then(function(foundBeacons) {
       res.render("browse", {
         foundBeacons: foundBeacons,
-        apiKey: process.env.keyskeys });
+        apiKey: process.env.keyskeys
+      });
     });
   });
 

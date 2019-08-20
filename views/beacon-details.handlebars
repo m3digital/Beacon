@@ -24,32 +24,45 @@ function initMap() {
 {{> header}}
 
 <div class="container">
-  <h1>{{beacon.dataValues.title}}</h1>
-  <p>
-    <a href="/profile/{{beacon.dataValues.User.dataValues.id}}">
-      Posted by {{beacon.dataValues.User.dataValues.displayName}}</a>
-  </p>
-  <div class="details-container d-flex justify-content-around">
+
+  <div class="details d-flex justify-content-between">
     <div class="details-main">
+      <h1>{{beacon.dataValues.title}}</h1>
+      <p>
+        <a href="/profile/{{beacon.dataValues.User.dataValues.id}}">
+          Posted by {{beacon.dataValues.User.dataValues.displayName}}</a>
+      </p>
       <p>{{beacon.dataValues.category}}</p>
-      <p>{{beacon.dataValues.description}}</p>
     </div>
+
     <div class="details-aside">
       <p>{{beacon.dataValues.address}}</p>
       <p>{{beacon.dataValues.startTime}}</p>
       {{!-- <p>Beacon End Time {{endTime}}</p> --}}
       <p>Beacon Date {{beacon.dataValues.date}}</p>
     </div>
-  </div>
-  <div id="beacon-map" style="width: 100%; height: 200px; background: #c2c2c2;"></div>
-  {{!-- Comment Form --}}
-  <form id="form-comment">
-    <textarea name="body" id="body" cols="30" rows="10"></textarea>
-    <input id="btn-comment" type="submit" value="Leave Comment">
-  </form>
 
-  {{!-- Comments --}}
-  <div id="comment-container"></div>
+  </div>
+  <hr>
+  <p class="text-justify">{{beacon.dataValues.description}}</p>
+
+  <div id="beacon-map" style="width: 100%; height: 300px; background: #c2c2c2;"></div>
+  {{!-- Comment Form --}}
+  <div class="comment-group my-3">
+    <form id="form-comment">
+      <div class="form-group">
+        <label for="body">Leave a Comment</label>
+        <textarea class="form-control" name="body" id="body" cols="30"
+          rows="4"></textarea>
+      </div>
+      <input class="btn btn-primary btn-block" id="btn-comment" type="submit"
+        value="Submit">
+    </form>
+
+    {{!-- Comments --}}
+    <div id="comment-container"></div>
+  </div>
+
 </div>
 
 {{> footer}}
