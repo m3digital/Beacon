@@ -93,7 +93,6 @@ function getComments(id) {
       .then(function(result) {
         console.log(result);
         getComments(thisBeaconID);
-        // window.location.replace("/browse"); // This needs to be beacon with ID
       })
       .catch(function(err) {
         console.log(err);
