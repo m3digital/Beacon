@@ -6,9 +6,9 @@ module.exports = function(sequelize, DataTypes) {
     address: DataTypes.STRING,
     latitude: DataTypes.FLOAT,
     longitude: DataTypes.FLOAT,
-    startTime: DataTypes.TIME,
-    endTime: DataTypes.TIME,
-    date: DataTypes.DATE
+    startTime: DataTypes.STRING,
+    endTime: DataTypes.STRING,
+    date: DataTypes.STRING
   });
   Beacon.associate = function(models) {
     Beacon.hasMany(models.Comment, { onDelete: "cascade" });

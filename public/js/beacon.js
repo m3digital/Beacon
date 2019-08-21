@@ -15,9 +15,9 @@ $(document).ready(function() {
       category: categoryInput.val().trim(),
       description: descriptionInput.val().trim(),
       address: addressInput.val().trim(),
-      startTime: startTimeInput.val().trim(),
-      endTime: endTimeInput.val().trim(),
-      date: dateInput.val().trim()
+      startTime: moment(startTimeInput.val().trim(), "HH:mm").format("hh:mm a"),
+      endTime: moment(endTimeInput.val().trim(), "HH:mm").format("hh:mm a"),
+      date: moment(dateInput.val().trim()).format("MMMM Do YYYY")
     };
     newBeacon(beaconData);
   });
@@ -95,7 +95,7 @@ $(document).ready(function() {
       // date: dateInput.trim()
       id: inputId
     };
-    console.log(newVersion)
+    console.log(newVersion);
     $.ajax({
       method: "PUT",
       url: "/api/beacons",
