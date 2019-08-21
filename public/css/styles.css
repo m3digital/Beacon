@@ -6,7 +6,7 @@ body {
 }
 
 .form-horizontal .control-label {
-  text-align: right
+  text-align: right;
 }
 /* #pageNotFound {
   background-image: url("https://images.unsplash.com/photo-1547643835-04cd59c17da4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
@@ -30,4 +30,22 @@ body {
 .comment-container {
   background: #d6d6d6;
   padding: 0.7em 2em;
+}
+
+.comment {
+  background: #a7a7a7;
+  margin-top: 0.5em;
+  padding: 0.5em;
+}
+
+.comment-user {
+}
+
+.comment-time {
+}
+
+.comment-body {
+  background: #d6d6d6;
+  padding: 0.5em;
+  marg
 }
