@@ -2,15 +2,10 @@
 function initMap() {
   var urlArray = window.location.href.split("/")
   var urlID = urlArray[urlArray.length - 1]
-  if (urlID[0] === "#") {
-    urlID = urlArray[urlArray.length - 2];
-  }
   $.get("/api/beacons/" + urlID,).then(
     function(foundBeacon) {
-      console.log(foundBeacon);
       var beacon = { lat: foundBeacon.latitude, lng: foundBeacon.longitude };
       // The map, centered at BEACON
-      console.log(beacon)
       var map = new google.maps.Map(document.getElementById("beacon-map"), {
         zoom: 12,
         center: beacon
