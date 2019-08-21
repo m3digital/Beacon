@@ -17,9 +17,8 @@ body {
   margin-top: 3em;
 }
 
-.beacon-aside {
-  width: 200px;
-  padding-left: 1em;
+.beacon-details p {
+  padding-right: 1.3em;
 }
 
 #beacon-map {
