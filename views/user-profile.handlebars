@@ -1,22 +1,44 @@
 {{> header}}
 
-<h1>This is the User Profile Page</h1>
+<div class="container">
 
-{{!-- User information --}}
-<p>{{currentUser.firstName}}</p>
+  <h1>This is the User Profile Page</h1>
 
-{{!-- Beacons by the user --}}
-<ul>
-  {{#each Beacons}}
-  <li>{{dataValues.title}}</li>
-  {{/each}}
-</ul>
+  {{!-- User information --}}
+  <p>{{currentUser.firstName}}</p>
 
-{{!-- Comments left by the user --}}
-<ul>
-  {{#each Comments}}
-  <li>{{dataValues.body}}</li>
-  {{/each}}
-</ul>
+  {{!-- Beacons by the user --}}
+  <div class="list-beacons">
+    {{#each Beacons}}
+    <a href="/beacon/{{dataValues.id}}">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{dataValues.title}}</h5>
+          <p class="card-text">{{dataValues.category}}</p>
+          <p class="card-text">{{dataValues.startTime}}</p>
+          {{#if dataValues.endTime}}
+          <p class="card-text">{{dataValues.endTime}}</p>
+          {{/if}}
+          <p class="card-text">{{dataValues.date}}</p>
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+
+  {{!-- Comments left by the user --}}
+  <div class="list-comments">
+    {{#each Comments}}
+    <a href="/beacon/{{dataValues.BeaconId}}">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">{{dataValues.body}}</p>
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+
+</div>
 
 {{> footer}}

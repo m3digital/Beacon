@@ -63,7 +63,7 @@ module.exports = function(app) {
     db.Beacon.findAll({}).then(function(foundBeacons) {
       res.render("browse", {
         foundBeacons: foundBeacons,
-        apiKey: process.env.keyskeys
+        apiKey: process.env.GOOGLEAPI
       });
     });
   });
@@ -79,7 +79,7 @@ module.exports = function(app) {
     }).then(function(beacon) {
       res.render("beacon-details", {
         beacon: beacon,
-        apiKey: process.env.keyskeys
+        apiKey: process.env.GOOGLEAPI
       });
     });
   });

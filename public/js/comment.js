@@ -15,7 +15,6 @@ $(document).ready(function() {
   });
 
   function logComment(body) {
-    console.log(BeaconId);
     $.post("/api/comments", {
       BeaconId: BeaconId,
       body: body
