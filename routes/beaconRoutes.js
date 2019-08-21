@@ -58,6 +58,7 @@ module.exports = function(app) {
       },
       function(err, response) {
         if (!err) {
+          newBeacon.address = response.json.results[0].formatted_address;
           newBeacon.latitude = response.json.results[0].geometry.location.lat;
           newBeacon.longitude = response.json.results[0].geometry.location.lng;
           db.Beacon.create(newBeacon).then(function(dbBeacon) {

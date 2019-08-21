@@ -13,7 +13,11 @@ function initMap() {
         center: beacon
       });
       // The marker, positioned at beacon
-      var marker = new google.maps.Marker({ position: beacon, map: map });
+      var marker = new google.maps.Marker({ 
+        position: beacon,
+        map: map,
+        icon: "https://i.postimg.cc/fLMPccmV/beacon-icon-lit.png",
+        });
     }
   );
 }
