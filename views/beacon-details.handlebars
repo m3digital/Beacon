@@ -14,7 +14,7 @@ function initMap() {
       var marker = new google.maps.Marker({ 
         position: beacon,
         map: map,
-        icon: "https://i.postimg.cc/fLMPccmV/beacon-icon-lit.png",
+        icon: "https://i.postimg.cc/h4rcJzwG/beak-color-lit.png",
         });
     }
   );
@@ -61,7 +61,7 @@ function initMap() {
     <hr>
     <div class="details">
     <p class="text-justify detail-data">{{beacon.dataValues.description}}</p>
-    <input type='text' class='edit' data-id="{{beacon.dataValues.id}}" style='display: none;'>
+    <input type='text' class='edit' id="desc-edit" data-id="{{beacon.dataValues.id}}" style='display: none;'>
     </div>
     <div id="beacon-map"></div>
   </div>

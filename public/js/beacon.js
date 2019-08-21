@@ -65,29 +65,37 @@ $(document).ready(function() {
   }
 
   function finishEditBeacon() {
-    console.log("this here right here.")
     $(".btn-edit").attr("style", "display: inline");
     $(".btn-delete").attr("style", "display: inline");
     $(".btn-submit").attr("style", "display: none");
 
-    var titleInput = $("#title");
-    var categoryInput = $("#category");
-    var descriptionInput = $("#desc");
-    var addressInput = $("#address");
-    var startTimeInput = $("#start-time");
-    var endTimeInput = $("#end-time");
-    var dateInput = $("#date");
-
+    // var titleInput = $("#title");
+    // var categoryInput = $("#category");
+    var descriptionInput = $("#desc-edit").val();
+    var inputId = $("#desc-edit").data("id");
+    // var addressInput = $("#address");
+    // var startTimeInput = $("#start-time");
+    // var endTimeInput = $("#end-time");
+    // var dateInput = $("#date");
+    console.log(descriptionInput);
+    $(".details")
+      .children()
+      .show();
+    $(".details")
+      .children("input.edit")
+      .hide();
+    console.log(inputId);
     var newVersion = {
-      title: titleInput.val().trim(),
-      category: categoryInput.val().trim(),
-      description: descriptionInput.val().trim(),
-      address: addressInput.val().trim(),
-      startTime: startTimeInput.val().trim(),
-      endTime: endTimeInput.val().trim(),
-      date: dateInput.val().trim()
+      // title: titleInput.trim(),
+      // category: categoryInput.trim(),
+      description: descriptionInput,
+      // address: addressInput.trim(),
+      // startTime: startTimeInput.trim(),
+      // endTime: endTimeInput.trim(),
+      // date: dateInput.trim()
+      id: inputId
     };
-
+    console.log(newVersion)
     $.ajax({
       method: "PUT",
       url: "/api/beacons",
