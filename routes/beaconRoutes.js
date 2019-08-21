@@ -29,6 +29,26 @@ module.exports = function(app) {
       res.json(dbBeacon);
     });
   });
+  app.put("/api/beacons", checkOwnership.beacon, function(req, res) {
+    db.Beacon.update(
+      {
+        title: req.body.title,
+        category: req.body.category,
+        description: req.body.description,
+        address: req.body.address,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        date: req.body.date
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(function(results) {
+      res.json(results);
+    });
+  });
   app.post("/api/beacons", function(req, res) {
     var newBeacon = req.body;
     newBeacon.UserId = req.user.id;
