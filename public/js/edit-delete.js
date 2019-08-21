@@ -58,51 +58,51 @@ function deleteComment() {
     });
 }
 
-function getComments(id) {
-  $.get("/api/comments/" + id, {}).then(function(commentList) {
-    $("#comments").empty();
-    for (var i = 0; i < commentList.length; i++) {
-      console.log("-------------------" + commentList[i].BeaconId);
-      var commentBody =
-        "<div class='comment-body'>" + commentList[i].body + "</div>";
-      var commentUser =
-        "<div class='comment-user'>" +
-        commentList[i].User.displayName +
-        "</div>";
-      var commentTime =
-        "<div class='comment-time'>" +
-        moment(commentList[i].createdAt)
-          .startOf("hour")
-          .fromNow() +
-        "</div>";
-      var commentDelete =
-        "<div class='btn-delete btn btn-sm btn-danger' data-id=" +
-        commentList[i].id +
-        " data-beacon-id=" +
-        commentList[i].BeaconId + // this is new, and I haven't updated the comment.js version
-        ">Delete</div>";
-      var commentEdit =
-        "<div class='btn-edit btn btn-sm btn-warning' data-id=" +
-        commentList[i].id +
-        " data-beacon-id=" +
-        commentList[i].BeaconId + // this too
-        ">Edit</div>";
-      var commentButtons =
-        "<div class='comment-buttons'>" +
-        commentDelete +
-        commentEdit +
-        "</div>";
-      var newComment =
-        "<div class='comment'>" +
-        commentUser +
-        commentTime +
-        commentBody +
-        commentButtons +
-        "</div>";
-      $("#comments").append(newComment);
-    }
-  });
-}
+// function getComments(id) {
+//   $.get("/api/comments/" + id, {}).then(function(commentList) {
+//     $("#comments").empty();
+//     for (var i = 0; i < commentList.length; i++) {
+//       console.log("-------------------" + commentList[i].BeaconId);
+//       var commentBody =
+//         "<div class='comment-body'>" + commentList[i].body + "</div>";
+//       var commentUser =
+//         "<div class='comment-user'>" +
+//         commentList[i].User.displayName +
+//         "</div>";
+//       var commentTime =
+//         "<div class='comment-time'>" +
+//         moment(commentList[i].createdAt)
+//           .startOf("hour")
+//           .fromNow() +
+//         "</div>";
+//       var commentDelete =
+//         "<div class='btn-delete btn btn-sm btn-danger' data-id=" +
+//         commentList[i].id +
+//         " data-beacon-id=" +
+//         commentList[i].BeaconId + // this is new, and I haven't updated the comment.js version
+//         ">Delete</div>";
+//       var commentEdit =
+//         "<div class='btn-edit btn btn-sm btn-warning' data-id=" +
+//         commentList[i].id +
+//         " data-beacon-id=" +
+//         commentList[i].BeaconId + // this too
+//         ">Edit</div>";
+//       var commentButtons =
+//         "<div class='comment-buttons'>" +
+//         commentDelete +
+//         commentEdit +
+//         "</div>";
+//       var newComment =
+//         "<div class='comment'>" +
+//         commentUser +
+//         commentTime +
+//         commentBody +
+//         commentButtons +
+//         "</div>";
+//       $("#comments").append(newComment);
+//     }
+//   });
+// }
 
 function editComment() {
   console.log("Edit Comment with the following ID: " + $(this).data("id"));
