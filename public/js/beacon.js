@@ -46,10 +46,18 @@ $(document).ready(function() {
 
   function editBeacon() {
     var currentBeacon = $(this).text();
-    $(this).children().hide();
-    $(this).children("input.edit").val(currentBeacon);
-    $(this).children("input.edit").show();
-    $(this).children("input.edit").focus();
+    $(this)
+      .children()
+      .hide();
+    $(this)
+      .children("input.edit")
+      .val(currentBeacon);
+    $(this)
+      .children("input.edit")
+      .show();
+    $(this)
+      .children("input.edit")
+      .focus();
   }
 
   function finishEditBeacon() {
