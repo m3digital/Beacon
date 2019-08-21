@@ -99,10 +99,10 @@ function initMap() {
     <div id="beacon-map"></div>
   </div>
 
-  <div id="beacon-list" class="list my-3 d-flex visible">
+  <div id="beacon-list" class="list my-3 flex-wrap justify-content-between d-flex visible">
     {{#each foundBeacons}}
     <a class="beacon-link" href="/beacon/{{dataValues.id}}" style="color:black;text-decoration:none">
-      <div class="card" style="width:18rem;text-align:left;border:1px solid grey;border-radius:15px">
+      <div class="card" style="width:22.5rem;text-align:left;border:1px solid grey;border-radius:15px">
         <div class="card-body">
           <h5 class="card-title">{{dataValues.title}}</h5>
           <p class="card-text">{{dataValues.category}}</p>

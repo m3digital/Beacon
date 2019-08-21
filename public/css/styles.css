@@ -71,3 +71,10 @@ body {
 .beacon-link:hover .card  {
   background-color: whitesmoke;
 }
+.card {
+  margin: 5px
+}
+
+.card-text {
+  margin-bottom: 10px
+}
