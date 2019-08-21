@@ -45,6 +45,14 @@ $(document).ready(function() {
   }
 
   function editBeacon() {
+    var currentBeacon = $(this).text();
+    $(this).children().hide();
+    $(this).children("input.edit").val(currentBeacon);
+    $(this).children("input.edit").show();
+    $(this).children("input.edit").focus();
+  }
+
+  function finishEditBeacon() {
     var titleInput = $("#title");
     var categoryInput = $("#category");
     var descriptionInput = $("#desc");
@@ -75,4 +83,5 @@ $(document).ready(function() {
 
   $(".beacon-buttons").on("click", ".btn-delete", deleteBeacon);
   $(".beacon-buttons").on("click", ".btn-edit", editBeacon);
+  $(".beacon-buttons").on("click", ".btn-submit", finishEditBeacon);
 });
