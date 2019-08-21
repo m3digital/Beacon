@@ -44,23 +44,34 @@ function getComments(id) {
           .startOf("hour")
           .fromNow() +
         "</div>";
-      var commentDelete =
-        "<div class='btn-delete btn btn-sm btn-danger' data-id=" +
-        commentList[i].id +
-        ">Delete</div>";
+      var commentDetails =
+        "<div class='d-flex justify-content-between'>" +
+        commentUser +
+        commentTime +
+        "</div>";
       var commentEdit =
-        "<div class='btn-edit btn btn-sm btn-warning' data-id=" +
+        "<button class='btn-edit btn btn-sm btn-warning' data-id=" +
         commentList[i].id +
-        ">Edit</div>";
+        ">Edit</button>";
+      var commentDelete =
+        "<button class='btn-delete btn btn-sm btn-danger' data-id=" +
+        commentList[i].id +
+        ">Delete</button>";
+      var commentSubmit =
+        "<button class='btn-submit btn btn-sm btn-success' data-id=" +
+        commentList[i].id +
+        ">Submit</button>";
       var commentButtons =
         "<div class='comment-buttons'>" +
         commentDelete +
         commentEdit +
+        commentSubmit +
         "</div>";
       var newComment =
-        "<div class='comment'>" +
-        commentUser +
-        commentTime +
+        "<div class='comment' id=" +
+        commentList[i].id +
+        ">" +
+        commentDetails +
         commentBody +
         commentButtons +
         "</div>";
