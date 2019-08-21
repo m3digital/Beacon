@@ -1,29 +1,34 @@
 <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
-      <div class="col-sm-6">
-        <div style="text-align:center">
-        <h4>Enter Your Information Below to Get Started!</h4></div>
-        <br>
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-12" style="">
+      <div style="text-align:center">
+        <h3 class="mb-3">Enter Your Information Below to Get Started!</h3>
+      </div>
+      <div class="text-right d-flex justify-content-center">
         <form id="form-signup">
-          <label for="first-name">First Name:</label>
-          <input type="text" name="first-name" id="first-name" style="position:absolute;width:70%;right:0" required>
-          <br>
-          <label for="last-name">Last Name:</label>
-          <input type="text" name="last-name" id="last-name" style="position:absolute;width:70%;right:0" required>
-          <br>
-          <label for="email">Email:</label>
-          <input type="email" name="email" id="email" style="position:absolute;width:70%;right:0" required>
-          <br>
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password" style="position:absolute;width:70%;right:0" required>
-          <br>
-          <label for="confirm-password">Confirm Password:</label>
-          <input type="password" name="confirm-password" id="confirm-password" style="position:absolute;width:70%;right:0" required>
-          <br>
-          <br>
-          <input type="submit" value="Sign Up" id="btn-signup" style="position:absolute;right:0">
+          <div class="mb-1"><label for="first-name" class="text-right">First Name:</label>
+            <input type="text" name="first-name" id="first-name" style="max-width:500px;min-width:300px" required>
+          </div>
+          <div class="mb-1"><label for="last-name" class="text-right">Last Name:</label>
+            <input type="text" name="last-name" id="last-name" style="max-width:500px;min-width:300px" required>
+          </div>
+          <div class="mb-1"><label for="email" class="text-right">Email:</label>
+            <input type="email" name="email" id="email" style="max-width:500px;min-width:300px" required>
+          </div>
+          <div class="mb-1"><label for="password" class="text-right">Password:</label>
+            <input type="password" name="password" id="password" style="max-width:500px;min-width:300px" required>
+          </div>
+          <div class="mb-1"><label for="confirm-password" class="text-right">Confirm Password:</label>
+            <input type="password" name="confirm-password" id="confirm-password" style="max-width:500px;min-width:300px"
+              required>
+          </div>
+          <div class="mt-3">
+            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Sign Up" id="btn-signup" style="">
+          </div>
         </form>
+      </div>
     </div>
   </div>
+</div>
 
 <script src="/js/signup.js"></script>
