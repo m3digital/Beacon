@@ -1,27 +1,50 @@
 {{> header}}
 <script>
-  var customLabel = {
-  restaurant: {
-    label: 'R'
-  },
-  bar: {
-    label: 'B'
-  }
+
+var customLabel = {
+restaurant: {
+  label: 'R'
+},
+bar: {
+  label: 'B'
+}
 };
+  var userLat;
+  var userLng;
 
-  var userLat  = 35.227085;
-  var userLng = -80.843124;
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+  userLat  = 35.227085;
+  userLng = -80.843124;
+  initMap()
+}
 
-  function initMap() {
+function success(pos){
+  userLat = pos.coords.latitude
+  userLng = pos.coords.longitude
+  console.log(userLat, userLng)
+  initMap()
+}
+
+function findMap() {
+navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+function initMap() {
   var map = new google.maps.Map(document.getElementById('beacon-map'), {
     center: new google.maps.LatLng(userLat, userLng),
     zoom: 10
   });
   var infoWindow = new google.maps.InfoWindow;
 
-    // Change this depending on the name of your PHP or XML file
+    // This grabs all the beacons from the database
     $.get('/api/beacons').then(function(beaconList) {
-
+      //Loops through those beacons and creates markers
       for (beacon of beaconList) {
         console.log(beacon)
         var id = beacon.id;
@@ -57,7 +80,7 @@
 </script>
 
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=findMap">
 </script>
 <div id="beacon-map" style="width: 100%; height: 600px; background: #c2c2c2;"></div>
 
