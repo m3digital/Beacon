@@ -14,14 +14,6 @@ body {
   background-image: url("https://images.unsplash.com/photo-1547643835-04cd59c17da4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
 } */
 
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
-}
-
 /* Beacon Details Page */
 .beacon-container {
   margin-top: 3em;
@@ -100,4 +92,12 @@ option {
 }
 #description {
   margin-bottom: 0
+}
+
+.hidden {
+  display: none!important;
+}
+
+.visible {
+  display: block;
 }
