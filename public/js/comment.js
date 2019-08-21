@@ -31,11 +31,23 @@ function getComments(id) {
   $.get("/api/comments/" + id, {}).then(function(commentList) {
     $("#comments").empty();
     for (var i = 0; i < commentList.length; i++) {
-      var commentBody = "<div class='comment-body'>" + commentList[i].body + "</div>";
-      var commentUser = "<div class='comment-user'>" + commentList[i].User.displayName + "</div>";
+      var commentBody =
+        "<div class='comment-body'>" + commentList[i].body + "</div>";
+      var commentUser =
+        "<div class='comment-user'>" +
+        commentList[i].User.displayName +
+        "</div>";
       var commentTime =
-        "<div class='comment-time'>" + moment(commentList[i].createdAt).startOf("hour").fromNow() + "</div>";
-      var commentDetails = "<div class='d-flex justify-content-between'>" + commentUser + commentTime + "</div>";
+        "<div class='comment-time'>" +
+        moment(commentList[i].createdAt)
+          .startOf("hour")
+          .fromNow() +
+        "</div>";
+      var commentDetails =
+        "<div class='d-flex justify-content-between'>" +
+        commentUser +
+        commentTime +
+        "</div>";
       var commentEdit =
         "<button class='btn-edit btn btn-sm btn-warning' data-id=" +
         commentList[i].id +
@@ -49,7 +61,9 @@ function getComments(id) {
         commentList[i].BeaconId +
         ">Delete</button>";
       var commentSubmit =
-        "<button class='btn-submit btn btn-sm btn-success' data-id=" + commentList[i].id + ">Submit</button>";
+        "<button class='btn-submit btn btn-sm btn-success' data-id=" +
+        commentList[i].id +
+        ">Submit</button>";
       var commentButtons =
         "<div class='comment-buttons d-flex justify-content-end'>" +
         commentEdit +
