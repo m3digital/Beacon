@@ -59,7 +59,7 @@ function getComments(id) {
         commentList[i].BeaconId +
         ">Edit</button>";
       var commentDelete =
-        "<button class='btn-delete btn btn-sm btn-danger' data-id=" +
+        "<button class='btn-comment-delete btn btn-sm btn-danger' data-id=" +
         commentList[i].id +
         " data-beacon-id=" +
         commentList[i].BeaconId +
@@ -107,6 +107,6 @@ function getComments(id) {
     console.log("Edit Comment with the following ID: " + $(this).data("id"));
   }
 
-  $("#comments").on("click", ".btn-delete", deleteComment);
+  $("#comments").on("click", ".btn-comment-delete", deleteComment);
   $("#comments").on("click", ".btn-edit", editComment);
 }
