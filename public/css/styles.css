@@ -78,3 +78,26 @@ body {
 .card-text {
   margin-bottom: 10px
 }
+
+input {
+  padding: 5px 10px
+}
+
+input[submit] {
+  padding: 8px 16px;
+}
+
+textarea {
+  padding: 5px 10px
+}
+
+select {
+  padding: 5px 10px
+}
+
+option {
+  padding: 5px 10px
+}
+#description {
+  margin-bottom: 0
+}
