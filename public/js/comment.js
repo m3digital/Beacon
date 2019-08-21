@@ -81,6 +81,7 @@ function getComments(id) {
         ">" +
         commentDetails +
         commentBody +
+        // "<input type='text' class='edit' style='display: none;'></input>" +
         commentButtons +
         "</div>";
       $("#comments").append(newComment);

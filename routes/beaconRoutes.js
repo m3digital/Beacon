@@ -1,7 +1,7 @@
 var db = require("../models");
 var checkOwnership = require("../config/middleware/checkOwnership");
 var googleMapsClient = require("@google/maps").createClient({
-  key: process.env.keyskeys
+  key: process.env.GOOGLEAPI
 });
 
 module.exports = function(app) {
