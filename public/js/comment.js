@@ -50,25 +50,25 @@ function getComments(id) {
         commentTime +
         "</div>";
       var commentEdit =
-        "<div class='btn-edit btn btn-sm btn-warning' data-id=" +
+        "<button class='btn-edit btn btn-sm btn-warning' data-id=" +
         commentList[i].id +
         " data-beacon-id=" +
         commentList[i].BeaconId +
-        ">Edit</div>";
+        ">Edit</button>";
       var commentDelete =
-        "<div class='btn-delete btn btn-sm btn-danger' data-id=" +
+        "<button class='btn-delete btn btn-sm btn-danger' data-id=" +
         commentList[i].id +
         " data-beacon-id=" +
         commentList[i].BeaconId +
-        ">Delete</div>";
+        ">Delete</button>";
       var commentSubmit =
         "<button class='btn-submit btn btn-sm btn-success' data-id=" +
         commentList[i].id +
         ">Submit</button>";
       var commentButtons =
-        "<div class='comment-buttons'>" +
-        commentDelete +
+        "<div class='comment-buttons d-flex justify-content-end'>" +
         commentEdit +
+        commentDelete +
         commentSubmit +
         "</div>";
       var newComment =
