@@ -72,7 +72,7 @@ $(document).ready(function() {
     // var titleInput = $("#title");
     // var categoryInput = $("#category");
     var descriptionInput = $("#desc-edit").val();
-    var id = $("#desc-edit").data("id");
+    var inputId = $("#desc-edit").data("id");
     // var addressInput = $("#address");
     // var startTimeInput = $("#start-time");
     // var endTimeInput = $("#end-time");
@@ -84,7 +84,7 @@ $(document).ready(function() {
     $(".details")
       .children("input.edit")
       .hide();
-    console.log(id);
+    console.log(inputId);
     var newVersion = {
       // title: titleInput.trim(),
       // category: categoryInput.trim(),
@@ -93,9 +93,9 @@ $(document).ready(function() {
       // startTime: startTimeInput.trim(),
       // endTime: endTimeInput.trim(),
       // date: dateInput.trim()
-      id: id
+      id: inputId
     };
-
+    console.log(newVersion)
     $.ajax({
       method: "PUT",
       url: "/api/beacons",
