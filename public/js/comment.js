@@ -10,6 +10,10 @@ $(document).ready(function() {
     var commentData = {
       body: bodyInput.val().trim()
     };
+    if (!commentData.body) {
+      console.log("comment null");
+      return;
+    }
     bodyInput.val("");
     logComment(commentData.body);
   });
