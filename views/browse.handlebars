@@ -1,4 +1,3 @@
-{{> header}}
 <script>
 
 
@@ -79,22 +78,47 @@ function initMap() {
     });
   }
 </script>
-
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=findMap">
+  src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=findMap">
 </script>
-<div>
-<div id="beacon-map" style="width: 100%; height: 600px; background: #c2c2c2;"></div>
+{{!-- Start HTML --}}
+{{> header}}
+
+<div class="container mt-3">
+
+  <div class="header d-flex justify-content-between">
+    <h2>Search for a Beacon</h2>
+    <button id="btn-map" class="btn-view-toggle visible btn
+      btn-outline-secondary btn-sm">Map View</button>
+    <button id="btn-map" class="btn-view-toggle hidden btn btn-outline-secondary
+      btn-sm">List
+      View</button>
+  </div>
+
+  <div class="map my-3 hidden">
+    <div id="beacon-map"></div>
+  </div>
+
+  <div id="beacon-list" class="list my-3 visible">
+    {{#each foundBeacons}}
+    <a href="/beacon/{{dataValues.id}}">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{dataValues.title}}</h5>
+          <p class="card-text">{{dataValues.category}}</p>
+          <p class="card-text">{{dataValues.startTime}}</p>
+          {{#if dataValues.endTime}}
+          <p class="card-text">{{dataValues.endTime}}</p>
+          {{/if}}
+          <p class="card-text">{{dataValues.date}}</p>
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+
 </div>
 
-{{#each foundBeacons}}
-<a href="/beacon/{{dataValues.id}}">
-  <p>Beacon Title {{dataValues.title}}</p>
-  <p>Beacon Category {{dataValues.category}}</p>
-  <p>Beacon Start Time {{dataValues.startTime}}</p>
-  {{!-- <p>Beacon End Time {{dataValues.endTime}}</p> --}}
-  <p>Beacon Date {{dataValues.date}}</p>
-</a>
-{{/each}}
-
 {{> footer}}
+
+<script src="/js/browse.js"></script>
