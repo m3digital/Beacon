@@ -29,7 +29,7 @@
   {{!-- Comments left by the user --}}
   <div class="list-comments">
     {{#each Comments}}
-    <a href="/beacon/{{dataValues.BeaconId}}/#{{dataValues.id}}">
+    <a href="/beacon/{{dataValues.BeaconId}}">
       <div class="card">
         <div class="card-body">
           <p class="card-text">{{dataValues.body}}</p>
@@ -38,7 +38,7 @@
     </a>
     {{/each}}
   </div>
-  
+
 </div>
 
 {{> footer}}

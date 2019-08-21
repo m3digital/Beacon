@@ -46,21 +46,30 @@ $(document).ready(function() {
 
   function editBeacon() {
     var currentBeacon = $(this).text();
-    $(this)
+    $(".btn-edit").attr("style", "display: none");
+    $(".btn-delete").attr("style", "display: none");
+    $(".btn-submit").attr("style", "display: inline");
+    var currentBeacon = $(".detail-data").text();
+    $(".details")
       .children()
       .hide();
-    $(this)
+    $(".details")
       .children("input.edit")
       .val(currentBeacon);
-    $(this)
+    $(".details")
       .children("input.edit")
       .show();
-    $(this)
+    $(".details")
       .children("input.edit")
       .focus();
   }
 
   function finishEditBeacon() {
+    console.log("this here right here.")
+    $(".btn-edit").attr("style", "display: inline");
+    $(".btn-delete").attr("style", "display: inline");
+    $(".btn-submit").attr("style", "display: none");
+
     var titleInput = $("#title");
     var categoryInput = $("#category");
     var descriptionInput = $("#desc");
@@ -78,6 +87,7 @@ $(document).ready(function() {
       endTime: endTimeInput.val().trim(),
       date: dateInput.val().trim()
     };
+
     $.ajax({
       method: "PUT",
       url: "/api/beacons",
@@ -89,7 +99,7 @@ $(document).ready(function() {
     });
   }
 
-  $(".beacon-buttons").on("click", ".btn-delete", deleteBeacon);
-  $(".beacon-buttons").on("click", ".btn-edit", editBeacon);
-  $(".beacon-buttons").on("click", ".btn-submit", finishEditBeacon);
+  $(document).on("click", ".btn-delete", deleteBeacon);
+  $(document).on("click", ".btn-edit", editBeacon);
+  $(document).on("click", ".btn-submit", finishEditBeacon);
 });
