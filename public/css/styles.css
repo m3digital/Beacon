@@ -67,3 +67,7 @@ body {
   height: 500px;
   background: #c2c2c2;
 }
+
+.beacon-link:hover .card  {
+  background-color: whitesmoke;
+}
