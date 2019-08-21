@@ -1,4 +1,5 @@
 var db = require("../models");
+var checkOwnership = require("../config/middleware/checkOwnership");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
@@ -23,6 +24,20 @@ module.exports = function(app) {
       include: [db.User]
     }).then(function(results) {
       res.json(results);
+    });
+  });
+
+  app.delete("/api/comments/:id", checkOwnership.comment, function(req, res) {
+    db.Comment.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbComment) {
+      console.log(
+        "----------------------------------console logging dbComment: " +
+          dbComment
+      );
+      res.json(dbComment);
     });
   });
 };
