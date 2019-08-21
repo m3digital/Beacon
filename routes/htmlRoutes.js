@@ -79,7 +79,7 @@ module.exports = function(app) {
     }).then(function(beacon) {
       res.render("beacon-details", {
         beacon: beacon,
-        apiKey: process.env.keyskeys
+        apiKey: process.env.GOOGLEAPI
       });
     });
   });
