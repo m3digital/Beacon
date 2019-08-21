@@ -1,16 +1,9 @@
 {{> header}}
 <script>
 
-var customLabel = {
-restaurant: {
-  label: 'R'
-},
-bar: {
-  label: 'B'
-}
-};
-  var userLat;
-  var userLng;
+
+var userLat;
+var userLng;
 
 var options = {
   enableHighAccuracy: true,
@@ -47,6 +40,7 @@ function initMap() {
       //Loops through those beacons and creates markers
       for (beacon of beaconList) {
         console.log(beacon)
+        
         var id = beacon.id;
         var name = beacon.title;
         var address = beacon.address;
@@ -64,15 +58,22 @@ function initMap() {
         var text = document.createElement('text');
         text.textContent = address
         infowincontent.appendChild(text);
-        var icon = customLabel[type] || {};
+        var icon = "https://i.postimg.cc/Bv51H4QS/beacon-icon64.png"
         var marker = new google.maps.Marker({
+          zIndex: id,
+          url: "/beacon/" + id,
           map: map,
           position: point,
-          label: icon.label
+          icon: icon,
+          draggable: false,
+          animation: google.maps.Animation.DROP
         });
-        marker.addListener('click', function() {
-          infoWindow.setContent(infowincontent);
-          infoWindow.open(map, marker);
+        //google.maps.event.addListener(marker,'mouseover', function() {
+          //infoWindow.setContent(infowincontent);
+          //infoWindow.open(map, marker);
+        //});
+        google.maps.event.addListener(marker,'click', function() {
+          window.location.href = this.url;
         });
       };
     });
