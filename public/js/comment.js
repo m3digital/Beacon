@@ -50,13 +50,17 @@ function getComments(id) {
         commentTime +
         "</div>";
       var commentEdit =
-        "<button class='btn-edit btn btn-sm btn-warning' data-id=" +
+        "<div class='btn-edit btn btn-sm btn-warning' data-id=" +
         commentList[i].id +
-        ">Edit</button>";
+        " data-beacon-id=" +
+        commentList[i].BeaconId +
+        ">Edit</div>";
       var commentDelete =
-        "<button class='btn-delete btn btn-sm btn-danger' data-id=" +
+        "<div class='btn-delete btn btn-sm btn-danger' data-id=" +
         commentList[i].id +
-        ">Delete</button>";
+        " data-beacon-id=" +
+        commentList[i].BeaconId +
+        ">Delete</div>";
       var commentSubmit =
         "<button class='btn-submit btn btn-sm btn-success' data-id=" +
         commentList[i].id +
@@ -78,4 +82,28 @@ function getComments(id) {
       $("#comments").append(newComment);
     }
   });
+
+  function deleteComment() {
+    var thisCommentID = $(this).data("id");
+    var thisBeaconID = $(this).data("beacon-id");
+    $.ajax({
+      method: "DELETE",
+      url: "/api/comments/" + thisCommentID
+    })
+      .then(function(result) {
+        console.log(result);
+        getComments(thisBeaconID);
+        // window.location.replace("/browse"); // This needs to be beacon with ID
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  }
+
+  function editComment() {
+    console.log("Edit Comment with the following ID: " + $(this).data("id"));
+  }
+
+  $("#comments").on("click", ".btn-delete", deleteComment);
+  $("#comments").on("click", ".btn-edit", editComment);
 }
