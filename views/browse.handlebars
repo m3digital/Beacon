@@ -83,7 +83,9 @@ function initMap() {
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&callback=findMap">
 </script>
+<div>
 <div id="beacon-map" style="width: 100%; height: 600px; background: #c2c2c2;"></div>
+</div>
 
 {{#each foundBeacons}}
 <a href="/beacon/{{dataValues.id}}">
