@@ -33,10 +33,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbComment) {
-      console.log(
-        "----------------------------------console logging dbComment: " +
-          dbComment
-      );
+      console.log(dbComment);
       res.json(dbComment);
     });
   });
