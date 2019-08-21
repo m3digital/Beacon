@@ -1,6 +1,10 @@
 $(document).ready(function() {
   var link = window.location.href.split("/");
   BeaconId = link[link.length - 1];
+  if (BeaconId[0] === "#") {
+    BeaconId = link[link.length - 2];
+  }
+  console.log(link, BeaconId);
   getComments(BeaconId);
   var commentForm = $("#form-comment");
   var bodyInput = $("#body");

@@ -2,6 +2,9 @@
 function initMap() {
   var urlArray = window.location.href.split("/")
   var urlID = urlArray[urlArray.length - 1]
+  if (urlID[0] === "#") {
+    urlID = urlArray[urlArray.length - 2];
+  }
   $.get("/api/beacons/" + urlID,).then(
     function(foundBeacon) {
       console.log(foundBeacon);
