@@ -39,13 +39,15 @@ body {
 }
 
 .comment-user {
+  font-weight: bold;
 }
 
 .comment-time {
+  color: #fff;
 }
 
 .comment-body {
   background: #d6d6d6;
   padding: 0.5em;
-  marg
+  margin: 0.5em 0;
 }

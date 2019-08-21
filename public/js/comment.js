@@ -49,18 +49,18 @@ function getComments(id) {
         commentUser +
         commentTime +
         "</div>";
-      var commentDelete =
-        "<div class='btn-delete btn btn-sm btn-danger' data-id=" +
-        commentList[i].id +
-        ">Delete</div>";
       var commentEdit =
-        "<div class='btn-edit btn btn-sm btn-warning' data-id=" +
+        "<button class='btn-edit btn btn-sm btn-warning' data-id=" +
         commentList[i].id +
-        ">Edit</div>";
+        ">Edit</button>";
+      var commentDelete =
+        "<button class='btn-delete btn btn-sm btn-danger' data-id=" +
+        commentList[i].id +
+        ">Delete</button>";
       var commentSubmit =
-        "<div class='btn-submit btn btn-sm btn-success' data-id=" +
+        "<button class='btn-submit btn btn-sm btn-success' data-id=" +
         commentList[i].id +
-        ">Submit</div>";
+        ">Submit</button>";
       var commentButtons =
         "<div class='comment-buttons'>" +
         commentDelete +
