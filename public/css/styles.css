@@ -67,3 +67,37 @@ body {
   height: 500px;
   background: #c2c2c2;
 }
+
+.beacon-link:hover .card  {
+  background-color: whitesmoke;
+}
+.card {
+  margin: 5px
+}
+
+.card-text {
+  margin-bottom: 10px
+}
+
+input {
+  padding: 5px 10px
+}
+
+input[submit] {
+  padding: 8px 16px;
+}
+
+textarea {
+  padding: 5px 10px
+}
+
+select {
+  padding: 5px 10px
+}
+
+option {
+  padding: 5px 10px
+}
+#description {
+  margin-bottom: 0
+}
