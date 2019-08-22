@@ -6,6 +6,7 @@ $(document).ready(function() {
   var passwordConfirmInput = $("#confirm-password");
   var firstNameInput = $("#first-name");
   var lastNameInput = $("#last-name");
+  var mbtiInput = $("#mbti");
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
@@ -15,7 +16,8 @@ $(document).ready(function() {
       password: passwordInput.val().trim(),
       passwordConfirm: passwordConfirmInput.val().trim(),
       firstName: firstNameInput.val().trim(),
-      lastName: lastNameInput.val().trim()
+      lastName: lastNameInput.val().trim(),
+      meyersBriggs: mbtiInput.val().trim()
     };
     if (!userData.email || !userData.password) {
       return; // Set up appropriate error later
@@ -28,23 +30,26 @@ $(document).ready(function() {
       userData.email,
       userData.password,
       userData.firstName,
-      userData.lastName
+      userData.lastName,
+      userData.meyersBriggs
     );
     emailInput.val("");
     passwordInput.val("");
     passwordConfirmInput.val("");
     firstNameInput.val("");
     lastNameInput.val("");
+    mbtiInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password, firstName, lastName) {
+  function signUpUser(email, password, firstName, lastName, meyersBriggs) {
     $.post("/api/signup", {
       email: email,
       password: password,
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
+      meyersBriggs: meyersBriggs
     })
       .then(function(data) {
         window.location.replace("/browse");

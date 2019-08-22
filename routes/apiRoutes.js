@@ -28,6 +28,7 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
+      meyersBriggs: req.body.meyersBriggs.toUpperCase(),
       firstName: toTitleCase(req.body.firstName.toLowerCase()),
       lastName: toTitleCase(req.body.lastName.toLowerCase()),
       displayName: getDisplayName(
