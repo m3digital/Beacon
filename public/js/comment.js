@@ -80,9 +80,8 @@ function getComments(id) {
         ">" +
         commentDetails +
         commentBody;
-      // "<input type='text' class='edit' style='display: none;'></input>" +
-      console.log(currentUser);
-      if (currentUser.id === commentList[i].UserId) {
+      var currentUserId = $("#currentUser-id").data("id");
+      if (currentUserId === commentList[i].UserId) {
         newComment += commentButtons;
       }
       newComment += "</div>";

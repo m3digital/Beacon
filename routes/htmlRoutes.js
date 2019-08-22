@@ -81,7 +81,6 @@ module.exports = function(app) {
       if (req.user.id === beacon.dataValues.User.id) {
         sameUser = true;
       }
-      console.log(sameUser);
       res.render("beacon-details", {
         sameUser: sameUser,
         beacon: beacon,
@@ -89,17 +88,6 @@ module.exports = function(app) {
       });
     });
   });
-
-  // Load example page and pass in an example by id
-  //   app.get("/example/:id", isAuthenticated, function(req, res) {
-  //     db.Beacon.findOne({ where: { id: req.params.id } }).then(function(
-  //       dbExample
-  //     ) {
-  //       res.render("example", {
-  //         example: dbExample
-  //       });
-  //     });
-  //   });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
