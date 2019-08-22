@@ -30,14 +30,13 @@ function initMap() {
   {{!-- Beacon Container --}}
   <div class="beacon-container">
     <div class="beacon-buttons">
-      <div class="btn-delete btn btn-sm btn-danger"
-        data-id="{{beacon.dataValues.id}}">Delete</div>
-      <div class="btn-edit btn btn-sm btn-warning"
-        data-id="{{beacon.dataValues.id}}">Edit</div>
-      </div>
-      <div class="btn-submit btn btn-sm btn-warning"
+      <button class="btn-delete btn btn-sm btn-danger"
+        data-id="{{beacon.dataValues.id}}">Delete</button>
+      <button class="btn-edit btn btn-sm btn-warning"
+        data-id="{{beacon.dataValues.id}}">Edit</button>
+      <button class="btn-submit btn btn-sm btn-warning"
         style="display: none"
-        data-id="{{beacon.dataValues.id}}">Submit</div>
+        data-id="{{beacon.dataValues.id}}">Submit</button>
       </div>
 
     <div class="beacon-main">
@@ -60,8 +59,8 @@ function initMap() {
     </div>
     <hr>
     <div class="details">
-    <p class="text-justify detail-data">{{beacon.dataValues.description}}</p>
-    <input type='text' class='edit' id="desc-edit" data-id="{{beacon.dataValues.id}}" style='display: none;'>
+      <p class="text-justify detail-data">{{beacon.dataValues.description}}</p>
+      <input type='text' class='edit' id="desc-edit" data-id="{{beacon.dataValues.id}}" style='display: none;'>
     </div>
     <div id="beacon-map"></div>
   </div>

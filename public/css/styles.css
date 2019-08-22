@@ -60,19 +60,39 @@ body {
   background: #c2c2c2;
 }
 
-.beacon-link:hover .card  {
-  background-color: whitesmoke;
+.beacon-link {
+  color: black;
+  text-decoration: none !important;
+  width: 100%;
+  display: block;
 }
+
 .card {
-  margin: 5px
+  margin: 5px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  border: 1px solid grey;
+  border-radius: 15px;
+  color: black;
+  margin-bottom: 1em;
+}
+
+.list-comments .card {
+  /* width: 8em; */
+  height: 100%;
+}
+
+.beacon-link:hover .card {
+  background-color: whitesmoke;
 }
 
 .card-text {
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 input {
-  padding: 5px 10px
+  padding: 5px 10px;
 }
 
 input[submit] {
@@ -80,22 +100,22 @@ input[submit] {
 }
 
 textarea {
-  padding: 5px 10px
+  padding: 5px 10px;
 }
 
 select {
-  padding: 5px 10px
+  padding: 5px 10px;
 }
 
 option {
-  padding: 5px 10px
+  padding: 5px 10px;
 }
 #description {
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 .visible {

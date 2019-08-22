@@ -8,35 +8,45 @@
   <p>{{currentUser.firstName}}</p>
 
   {{!-- Beacons by the user --}}
-  <div class="list-beacons">
-    {{#each Beacons}}
-    <a href="/beacon/{{dataValues.id}}" class="beacon-link">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{dataValues.title}}</h5>
-          <p class="card-text">{{dataValues.category}}</p>
-          <p class="card-text">{{dataValues.startTime}}</p>
-          {{#if dataValues.endTime}}
-          <p class="card-text">{{dataValues.endTime}}</p>
-          {{/if}}
-          <p class="card-text">{{dataValues.date}}</p>
-        </div>
+  <div class="list-beacons my-5">
+    <h3 class="mb-3">{{currentUser.displayName}}'s Beacons</h3>
+    <div class="row">
+      {{#each Beacons}}
+      <div class="col-lg-4 col-6">
+        <a href="/beacon/{{dataValues.id}}" class="beacon-link">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{dataValues.title}}</h5>
+              <p class="card-text">{{dataValues.category}}</p>
+              <p class="card-text">{{dataValues.startTime}}</p>
+              {{#if dataValues.endTime}}
+              <p class="card-text">{{dataValues.endTime}}</p>
+              {{/if}}
+              <p class="card-text">{{dataValues.date}}</p>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-    {{/each}}
+      {{/each}}
+    </div>
   </div>
 
   {{!-- Comments left by the user --}}
-  <div class="list-comments">
-    {{#each Comments}}
-    <a href="/beacon/{{dataValues.BeaconId}}">
-      <div class="card">
-        <div class="card-body">
-          <p class="card-text">{{dataValues.body}}</p>
-        </div>
+  <div class="list-comments my-5">
+    <h3 class="mb-3">{{currentUser.displayName}}'s Comments</h3>
+    <div class="row">
+      {{#each Comments}}
+      <div class="col-lg-2 col-4">
+        <a href="/beacon/{{dataValues.BeaconId}}">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">{{dataValues.body}}</p>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-    {{/each}}
+      {{/each}}
+    </div>
   </div>
 
 </div>
