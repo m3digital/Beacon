@@ -1,3 +1,8 @@
+.btn-edit,
+.btn-success {
+  display: none;
+}
+
 /* Set Up */
 body {
   background-color: #f5f5f5;
@@ -79,13 +84,19 @@ body {
 }
 
 .comment {
-  background: #a7a7a7;
+  background: #2c3e50;
   margin-top: 0.5em;
   padding: 0.5em;
 }
 
 .comment-user {
   font-weight: bold;
+  color: #fff;
+}
+
+.comment-user:hover,
+.comment-user:focus {
+  color: #f1c40f;
 }
 
 .comment-time {
@@ -93,7 +104,7 @@ body {
 }
 
 .comment-body {
-  background: #d6d6d6;
+  background: #f5f5f5;
   padding: 0.5em;
   margin: 0.5em 0;
 }
@@ -137,7 +148,6 @@ body {
 }
 
 /* Form Inputs */
-
 .form-input {
   max-width: 500px;
   min-width: 300px;
@@ -147,7 +157,7 @@ body {
 }
 
 .form-input--center {
-  text-align:center
+  text-align: center;
 }
 
 input {

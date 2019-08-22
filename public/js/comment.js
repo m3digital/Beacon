@@ -38,14 +38,14 @@ function getComments(id) {
       var commentBody =
         "<div class='comment-body'>" + commentList[i].body + "</div>";
       var commentUser =
-        "<div class='comment-user'>" +
+        "<a class='comment-user' href='/profile/" +
+        commentList[i].UserId +
+        "'>" +
         commentList[i].User.displayName +
-        "</div>";
+        "</a>";
       var commentTime =
         "<div class='comment-time'>" +
-        moment(commentList[i].createdAt)
-          .startOf("hour")
-          .fromNow() +
+        moment(commentList[i].createdAt).fromNow() +
         "</div>";
       var commentDetails =
         "<div class='d-flex justify-content-between'>" +
