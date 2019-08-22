@@ -29,6 +29,7 @@ function initMap() {
 
   {{!-- Beacon Container --}}
   <div class="beacon-container">
+    {{#if sameUser}}
     <div class="beacon-buttons">
       <button class="btn-delete btn btn-sm btn-danger"
         data-id="{{beacon.dataValues.id}}">Delete</button>
@@ -37,7 +38,8 @@ function initMap() {
       <button class="btn-submit btn btn-sm btn-warning"
         style="display: none"
         data-id="{{beacon.dataValues.id}}">Submit</button>
-      </div>
+    </div>
+    {{/if}}
 
     <div class="beacon-main">
       <h1>{{beacon.dataValues.title}}</h1>
@@ -50,7 +52,7 @@ function initMap() {
 
     <div class="beacon-details d-flex flex-row">
       <p>{{beacon.dataValues.address}}</p>
-      
+
       <p>Start: {{beacon.dataValues.startTime}}</p>
       {{#if beacon.dataValues.endTime}}
       <p>End: {{beacon.dataValues.endTime}}</p>
@@ -60,7 +62,8 @@ function initMap() {
     <hr>
     <div class="details">
       <p class="text-justify detail-data">{{beacon.dataValues.description}}</p>
-      <input type='text' class='edit' id="desc-edit" data-id="{{beacon.dataValues.id}}" style='display: none;'>
+      <input type='text' class='edit' id="desc-edit"
+        data-id="{{beacon.dataValues.id}}" style='display: none;'>
     </div>
     <div id="beacon-map"></div>
   </div>

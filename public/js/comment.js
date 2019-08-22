@@ -79,10 +79,13 @@ function getComments(id) {
         commentList[i].id +
         ">" +
         commentDetails +
-        commentBody +
-        // "<input type='text' class='edit' style='display: none;'></input>" +
-        commentButtons +
-        "</div>";
+        commentBody;
+      // "<input type='text' class='edit' style='display: none;'></input>" +
+      console.log(currentUser);
+      if (currentUser.id === commentList[i].UserId) {
+        newComment += commentButtons;
+      }
+      newComment += "</div>";
       $("#comments").append(newComment);
     }
   });

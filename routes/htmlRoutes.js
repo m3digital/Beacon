@@ -77,7 +77,13 @@ module.exports = function(app) {
       where: { id: req.params.id },
       include: [db.User]
     }).then(function(beacon) {
+      var sameUser = false;
+      if (req.user.id === beacon.dataValues.User.id) {
+        sameUser = true;
+      }
+      console.log(sameUser);
       res.render("beacon-details", {
+        sameUser: sameUser,
         beacon: beacon,
         apiKey: process.env.GOOGLEAPI
       });
