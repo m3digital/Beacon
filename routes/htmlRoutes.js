@@ -77,23 +77,17 @@ module.exports = function(app) {
       where: { id: req.params.id },
       include: [db.User]
     }).then(function(beacon) {
+      var sameUser = false;
+      if (req.user.id === beacon.dataValues.User.id) {
+        sameUser = true;
+      }
       res.render("beacon-details", {
+        sameUser: sameUser,
         beacon: beacon,
         apiKey: process.env.GOOGLEAPI
       });
     });
   });
-
-  // Load example page and pass in an example by id
-  //   app.get("/example/:id", isAuthenticated, function(req, res) {
-  //     db.Beacon.findOne({ where: { id: req.params.id } }).then(function(
-  //       dbExample
-  //     ) {
-  //       res.render("example", {
-  //         example: dbExample
-  //       });
-  //     });
-  //   });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

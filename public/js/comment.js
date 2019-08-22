@@ -38,14 +38,14 @@ function getComments(id) {
       var commentBody =
         "<div class='comment-body'>" + commentList[i].body + "</div>";
       var commentUser =
-        "<div class='comment-user'>" +
+        "<a class='comment-user' href='/profile/" +
+        commentList[i].UserId +
+        "'>" +
         commentList[i].User.displayName +
-        "</div>";
+        "</a>";
       var commentTime =
         "<div class='comment-time'>" +
-        moment(commentList[i].createdAt)
-          .startOf("hour")
-          .fromNow() +
+        moment(commentList[i].createdAt).fromNow() +
         "</div>";
       var commentDetails =
         "<div class='d-flex justify-content-between'>" +
@@ -79,10 +79,12 @@ function getComments(id) {
         commentList[i].id +
         ">" +
         commentDetails +
-        commentBody +
-        // "<input type='text' class='edit' style='display: none;'></input>" +
-        commentButtons +
-        "</div>";
+        commentBody;
+      var currentUserId = $("#currentUser-id").data("id");
+      if (currentUserId === commentList[i].UserId) {
+        newComment += commentButtons;
+      }
+      newComment += "</div>";
       $("#comments").append(newComment);
     }
   });
