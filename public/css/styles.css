@@ -125,7 +125,6 @@ body {
 }
 
 .list-comments .card {
-  /* width: 8em; */
   height: 100%;
 }
 
@@ -135,6 +134,20 @@ body {
 
 .card-text {
   margin-bottom: 10px;
+}
+
+/* Form Inputs */
+
+.form-input {
+  max-width: 500px;
+  min-width: 300px;
+  text-align: left;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.form-input--center {
+  text-align:center
 }
 
 input {
