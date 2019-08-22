@@ -2,14 +2,14 @@
 
 <div class="container">
 
-  <h1>This is the User Profile Page</h1>
-
   {{!-- User information --}}
-  <p>{{currentUser.firstName}}</p>
+  <h1 class="mt-4">{{dataValues.displayName}}'s Profile</h1>
+  <p class="lead">{{dataValues.displayName}} is a {{dataValues.meyersBriggs}} on the Meyers
+    Briggs scale.</p>
 
   {{!-- Beacons by the user --}}
   <div class="list-beacons my-5">
-    <h3 class="mb-3">{{currentUser.displayName}}'s Beacons</h3>
+    <h3 class="mb-3">{{dataValues.displayName}}'s Beacons</h3>
     <div class="row">
       {{#each Beacons}}
       <div class="col-lg-4 col-6">
@@ -33,7 +33,7 @@
 
   {{!-- Comments left by the user --}}
   <div class="list-comments my-5">
-    <h3 class="mb-3">{{currentUser.displayName}}'s Comments</h3>
+    <h3 class="mb-3">{{dataValues.displayName}}'s Comments</h3>
     <div class="row">
       {{#each Comments}}
       <div class="col-lg-2 col-4">
