@@ -4,8 +4,12 @@
 
   {{!-- User information --}}
   <h1 class="mt-4">{{dataValues.displayName}}'s Profile</h1>
-  <p class="lead">{{dataValues.displayName}} is a {{dataValues.meyersBriggs}} on the Meyers
-    Briggs scale.</p>
+  {{#if dataValues.meyersBriggs}}
+  <p class="lead">
+    {{dataValues.displayName}} is a {{dataValues.meyersBriggs}} on the Meyers
+    Briggs scale.
+  </p>
+  {{/if}}
 
   {{!-- Beacons by the user --}}
   <div class="list-beacons my-5">
@@ -36,8 +40,8 @@
     <h3 class="mb-3">{{dataValues.displayName}}'s Comments</h3>
     <div class="row">
       {{#each Comments}}
-      <div class="col-lg-2 col-4">
-        <a href="/beacon/{{dataValues.BeaconId}}">
+      <div class="col-lg-2 col-4 mb-4">
+        <a href="/beacon/{{dataValues.BeaconId}}" class="beacon-link">
           <div class="card">
             <div class="card-body">
               <p class="card-text">{{dataValues.body}}</p>
